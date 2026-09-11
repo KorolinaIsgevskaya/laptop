@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Подбор ноутбуков · каталог 2026 (проверено 11.09)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/manrope@5.1.0/index.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/unbounded@5.1.0/index.css" />
+<style>
+  html{scroll-behavior:smooth}
+  body{font-family:'Manrope',system-ui,sans-serif;background:#060913;color:#e8ecf6}
+  .font-display{font-family:'Unbounded',sans-serif}
+  .glass{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);backdrop-filter:blur(14px)}
+  .gold-text{background:linear-gradient(92deg,#f6c453,#ffe9a8 45%,#d99a2b);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.visible{opacity:1;transform:none}
+  .shop-row{transition:background .2s}.shop-row:hover{background:rgba(255,255,255,.06)}
+  .btn-buy{background:linear-gradient(135deg,#f6c453,#e0a52e);color:#1a1204;font-weight:800;transition:filter .2s,transform .2s}
+  .btn-buy:hover{filter:brightness(1.12);transform:translateY(-1px)}
+  .icon-btn{border:1px solid rgba(255,255,255,.15);transition:background .2s}.icon-btn:hover{background:rgba(255,255,255,.12)}
+  .tab-btn{transition:all .25s}
+  .tab-btn.active{background:linear-gradient(135deg,rgba(246,196,83,.2),rgba(246,196,83,.08));border-color:rgba(246,196,83,.5);color:#fde68a}
+  .chip{transition:all .2s;cursor:pointer;user-select:none}
+  .chip.on{background:rgba(246,196,83,.16);border-color:rgba(246,196,83,.55);color:#fde68a}
+  .pbar{height:6px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden}
+  .pfill{height:100%;border-radius:99px;background:linear-gradient(90deg,#f6c453,#fb7185);transition:width .8s ease}
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}.floaty{animation:floaty 6s ease-in-out infinite}
+  @keyframes pulseGlow{0%,100%{opacity:.4}50%{opacity:.8}}.glow{animation:pulseGlow 5s ease-in-out infinite}
+  #toast{opacity:0;transform:translate(-50%,14px);transition:opacity .3s,transform .3s}#toast.show{opacity:1;transform:translate(-50%,0)}
+  table.grid-t td,table.grid-t th{border-bottom:1px solid rgba(255,255,255,.07)}
+  .sortbtn.active{color:#fde68a;border-color:rgba(246,196,83,.5)}
+  .batt-cell{background:rgba(52,211,153,.06);border:1px solid rgba(52,211,153,.2)}
+  .term{border-left:3px solid rgba(246,196,83,.5)}
+  .help-dot{cursor:pointer;border-bottom:1px dashed rgba(246,196,83,.6)}
+  #errban{display:none;position:fixed;top:0;left:0;right:0;background:#7f1d1d;color:#fff;padding:10px 14px;z-index:999;font:12px/1.4 monospace;white-space:pre-wrap}
+</style>
+</head>
+<body class="antialiased">
+<div id="errban"></div>
+<script>
+window.addEventListener('error',function(e){
+  var d=document.getElementById('errban');
+  if(d){d.style.display='block';d.textContent='JS-ошибка на странице: '+e.message+' (строка '+e.lineno+'). Пришли этот текст — починю точечно.';}
+});
+</script>
+
+<nav class="fixed top-0 inset-x-0 z-50 glass border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-4 md:px-5 h-16 flex items-center justify-between gap-3">
+    <a href="#" onclick="switchPage('home');return false;" class="font-display text-sm md:text-base tracking-wide gold-text whitespace-nowrap">ПОДБОР НОУТБУКОВ</a>
+    <div class="flex gap-1 md:gap-2 text-[11px] md:text-sm overflow-x-auto">
+      <button data-tab="home" class="tab-btn active px-2.5 md:px-4 py-2 rounded-xl glass border border-transparent whitespace-nowrap">Главная</button>
+      <button data-tab="intel" class="tab-btn px-2.5 md:px-4 py-2 rounded-xl glass border border-transparent text-sky-300 whitespace-nowrap">Intel · 23</button>
+      <button data-tab="amd" class="tab-btn px-2.5 md:px-4 py-2 rounded-xl glass border border-transparent text-rose-300 whitespace-nowrap">AMD · 8</button>
+      <button data-tab="alt" class="tab-btn px-2.5 md:px-4 py-2 rounded-xl glass border border-transparent text-violet-300 whitespace-nowrap">ARM · Mac · 6</button>
+      <button data-tab="batt" class="tab-btn px-2.5 md:px-4 py-2 rounded-xl glass border border-transparent text-emerald-300 whitespace-nowrap">🔋 · 5</button>
+      <button data-tab="all" class="tab-btn px-2.5 md:px-4 py-2 rounded-xl glass border border-transparent whitespace-nowrap">Рейтинг · 37</button>
+      <button onclick="openGlossary()" class="px-2.5 md:px-4 py-2 rounded-xl glass border border-amber-300/40 text-amber-200 whitespace-nowrap">📖 Словарь</button>
+    </div>
+  </div>
+</nav>
+
+<section id="page-home" class="pt-24 pb-16">
+  <div class="relative overflow-hidden">
+    <div class="glow absolute -top-40 -left-40 w-[560px] h-[560px] rounded-full blur-3xl" style="background:radial-gradient(circle,rgba(246,196,83,.2),transparent 65%)"></div>
+    <div class="glow absolute top-10 -right-40 w-[520px] h-[520px] rounded-full blur-3xl" style="background:radial-gradient(circle,rgba(56,189,248,.14),transparent 65%)"></div>
+    <div class="max-w-7xl mx-auto px-4 md:px-5 relative">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div class="reveal visible">
+          <p class="text-emerald-300/90 text-xs md:text-sm tracking-[.25em] uppercase mb-4">✔ Наличие и цены перепроверены 11.09.2026 · покупка от юрлица</p>
+          <h1 class="font-display text-3xl md:text-5xl leading-tight">Подбор ноутбуков <span class="gold-text">14–14,6"</span></h1>
+          <div class="flex flex-wrap gap-3 mt-7">
+            <button onclick="switchPage(null,'all')" class="btn-buy px-6 py-3 rounded-2xl text-sm">Общий рейтинг · 37</button>
+            <button onclick="switchPage(null,'batt')" class="px-6 py-3 rounded-2xl text-sm glass hover:bg-white/10 transition text-emerald-300">🔋 Автономность</button>
+            <button onclick="openGlossary()" class="px-6 py-3 rounded-2xl text-sm glass hover:bg-white/10 transition text-amber-200">📖 Словарь</button>
+          </div>
+          <p class="text-xs text-slate-500 mt-4">Легенда: ✔ в наличии · ? уточнить/поступление · 📋 справочно (импорт) · ⛔ не проходит по памяти (для справки). Если у модели несколько процессоров — внутри карточки блок «🧠 Какой CPU лучше».</p>
+        </div>
+        <div class="relative reveal visible">
+          <div class="absolute inset-0 rounded-[2rem] blur-3xl opacity-40" style="background:radial-gradient(circle at 50% 40%,rgba(246,196,83,.35),transparent 70%)"></div>
+          <div class="relative glass rounded-[2rem] p-3 floaty">
+            <img src="https://image.qwenlm.ai/public_source/1f807ff2-dad3-4cbb-bade-027b4a86a158/16878f9f0-4415-4721-86a1-3ecce1faf85f.png" alt="Ноутбук" class="rounded-[1.6rem] w-full object-cover" />
+            <span class="absolute -top-3 left-8 px-3 py-1 rounded-full text-xs font-bold bg-emerald-300 text-black shadow-lg">только наличие · Москва · юрлицо</span>
+          </div>
+        </div>
+      </div>
+      <div class="mt-16">
+        <h2 class="font-display text-2xl md:text-3xl gold-text mb-2">Лучшие варианты — и почему именно они</h2>
+        <p class="text-slate-400 text-sm mb-6">Для базовых задач (браузер, документы, звонки, веб-ИИ) подойдёт любая модель — разница в экране, весе, батарее и запасе мощности.</p>
+        <div id="picksWrap" class="grid md:grid-cols-2 xl:grid-cols-3 gap-5"></div>
+      </div>
+      <div class="mt-14 glass rounded-3xl p-6 md:p-9 reveal">
+        <h2 class="font-display text-xl md:text-2xl gold-text mb-4">Покупка от юрлица — как читать карточки</h2>
+        <div class="grid md:grid-cols-3 gap-5 text-sm">
+          <div class="rounded-2xl border border-emerald-400/25 bg-emerald-400/[.05] p-5"><p class="font-display text-emerald-300 mb-3">✔ юрлицо</p><p class="text-slate-300 leading-relaxed">Безнал, цена с НДС, УПД: KNS (прайс «для организаций», оферта ЕАИСТ), Ситилинк («Купить как юрлицо»), DNS, Регард, Технопарк, М.Видео (бизнес), PiterGSM (безнал), re:Store.</p></div>
+          <div class="rounded-2xl border border-amber-400/25 bg-amber-400/[.05] p-5"><p class="font-display text-amber-300 mb-3">⚠ счёт уточнить</p><p class="text-slate-300 leading-relaxed">Импорт-магазины (dikotech, mi.moscow, electrogor, line-power): счёт обычно возможен, но подтвердить при заказе. Ximion исключён из подборки полностью.</p></div>
+          <div class="rounded-2xl border border-sky-400/25 bg-sky-400/[.05] p-5"><p class="font-display text-sky-300 mb-3">⌨ раскладка</p><p class="text-slate-300 leading-relaxed"><b class="text-emerald-300">RU</b> — русские буквы есть; <b class="text-rose-300">ENG</b> — только английские (гравировка ~2–3 тыс. ₽, сутки); <b class="text-amber-300">уточнить</b> — магазин не указал.</p></div>
+        </div>
+      </div>
+      <div class="mt-10 glass rounded-3xl p-6 md:p-9 reveal">
+        <h2 class="font-display text-xl md:text-2xl gold-text mb-4">Сколько мощности нужно на самом деле <span class="help-dot text-sm text-amber-300" onclick="openGlossary()">что такое R23?</span></h2>
+        <div class="grid md:grid-cols-3 gap-5 text-sm">
+          <div class="rounded-2xl border border-emerald-400/25 bg-emerald-400/[.06] p-5"><p class="font-display text-emerald-300 text-lg">≈ 7 000 – 12 000</p><p class="text-slate-300 mt-2"><b>достаточно</b> для браузера, документов, звонков и веб-ИИ. Тише, холоднее, дольше от батареи.</p></div>
+          <div class="rounded-2xl border border-amber-400/25 bg-amber-400/[.06] p-5"><p class="font-display text-amber-300 text-lg">≈ 13 000 – 18 000</p><p class="text-slate-300 mt-2"><b>комфортный запас</b> на 5–7 лет: тяжёлые таблицы, десятки приложений, локальные ИИ-инструменты.</p></div>
+          <div class="rounded-2xl border border-fuchsia-400/25 bg-fuchsia-400/[.06] p-5"><p class="font-display text-fuchsia-300 text-lg">≈ 20 000 +</p><p class="text-slate-300 mt-2"><b>рабочая станция</b> — для базовых задач избыточно, но разумно «на вырост».</p></div>
+        </div>
+      </div>
+      <div class="mt-10 glass rounded-3xl p-6 md:p-9 reveal overflow-x-auto">
+        <h2 class="font-display text-xl md:text-2xl gold-text mb-5">Топ-8 по мощности</h2>
+        <div id="topTableWrap" class="min-w-[780px]"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="page-intel" class="pt-24 pb-16 hidden">
+  <div class="max-w-7xl mx-auto px-4 md:px-5">
+    <h2 class="font-display text-2xl md:text-4xl text-sky-300 mb-2">Ноутбуки на Intel · 23 конфигурации</h2>
+    <p class="text-slate-400 text-sm mb-4">Сверху — самые мощные. Зелёным — наличие на 11.09, жёлтым — уточнить/поступление. Внутри карточек с несколькими CPU — блок «🧠 Какой CPU лучше».</p>
+    <div class="flex flex-wrap gap-2 mb-3" id="intelFilters"></div>
+    <div id="intelCards" class="grid lg:grid-cols-2 gap-6"></div>
+  </div>
+</section>
+
+<section id="page-amd" class="pt-24 pb-16 hidden">
+  <div class="max-w-7xl mx-auto px-4 md:px-5">
+    <h2 class="font-display text-2xl md:text-4xl text-rose-300 mb-2">Ноутбуки на AMD · 8 моделей</h2>
+    <div class="glass rounded-2xl p-4 mb-5 text-sm text-slate-300 border-rose-400/25">
+      <b class="text-rose-300">Почему здесь меньше моделей, чем на Intel:</b> пересечение четырёх условий — корпус ≈32,5×22,8 ±1 см, вес ~1–1,6 кг, 32 ГБ (завод или 16+16), живое наличие в Москве. Большинство AMD-14" отпадает по памяти (распаянные 16 ГБ) или по наличию. Жёлтые строки — уточнить/поступление, красные ⛔ — для справки по памяти. TUF A14 — 📋 справочно (импорт, Ozon), решение по статусу примем позже.
+    </div>
+    <div class="flex flex-wrap gap-2 mb-3" id="amdFilters"></div>
+    <div id="amdCards" class="grid lg:grid-cols-2 gap-6"></div>
+  </div>
+</section>
+
+<section id="page-alt" class="pt-24 pb-16 hidden">
+  <div class="max-w-7xl mx-auto px-4 md:px-5">
+    <h2 class="font-display text-2xl md:text-4xl text-violet-300 mb-2">Альтернативные платформы · 6</h2>
+    <div class="glass rounded-2xl p-4 mb-6 text-sm text-slate-300 border-amber-400/25">
+      <b class="text-amber-300">MacBook — только новые 2024–2026:</b> под требования проходит лишь корпус <b>MacBook Pro 14</b> (31,26 × 22,12 см — на ~1,2 см уже цели, ближайший из Mac): 2024 M4/M4 Pro/M4 Max (32/48/36 ГБ), 2025 M5 (32 ГБ), 2026 M5 Pro/Max (48/36 ГБ; 24 ГБ не проходит). <b class="text-rose-300">Air 13 (30,4×21,5), Air 15 (34,0×23,8), Pro 16 (35,6×24,8) — вне допуска ±1 см.</b> macOS — НЕ Windows. Цены Mac — ориентировочные.
+    </div>
+    <div id="altCards" class="grid lg:grid-cols-2 gap-6"></div>
+  </div>
+</section>
+
+<section id="page-batt" class="pt-24 pb-16 hidden">
+  <div class="max-w-7xl mx-auto px-4 md:px-5">
+    <h2 class="font-display text-2xl md:text-4xl text-emerald-300 mb-2">🔋 Рекордсмены по автономности</h2>
+    <p class="text-slate-400 text-sm mb-6">Полные карточки + блок «⚖️ Сравнение с Intel/AMD» с плюсами, минусами и вердиктом. Все модели есть и в общем рейтинге.</p>
+    <div class="glass rounded-3xl p-5 md:p-7 mb-8 overflow-x-auto reveal">
+      <table class="grid-t w-full text-sm min-w-[640px]">
+        <thead><tr class="text-left text-[11px] uppercase tracking-widest text-slate-500"><th class="py-2 pr-3">Модель</th><th class="py-2 pr-3">Без зарядки</th><th class="py-2 pr-3">Батарея</th><th class="py-2 pr-3">Габариты корпуса</th><th class="py-2">Проходит по размеру?</th></tr></thead>
+        <tbody id="battTableWrap"></tbody>
+      </table>
+      <p class="text-[11px] text-slate-500 mt-3">«До 24–32 ч» — видео при низкой яркости; в офисе с Wi-Fi ожидайте на 20–30% меньше.</p>
+    </div>
+    <div class="glass rounded-3xl p-5 md:p-7 mb-8 overflow-x-auto reveal">
+      <h3 class="font-display text-lg text-violet-300 mb-4">⚖️ Чем эти платформы отличаются от Intel/AMD (x86) — и лучше ли они</h3>
+      <table class="grid-t w-full text-sm min-w-[860px]">
+        <thead><tr class="text-left text-[11px] uppercase tracking-widest text-slate-500"><th class="py-2 pr-3">Критерий</th><th class="py-2 pr-3 text-sky-300">Intel (x86)</th><th class="py-2 pr-3 text-rose-300">AMD (x86)</th><th class="py-2 pr-3 text-violet-300">Snapdragon (ARM)</th><th class="py-2 text-slate-300">Apple (macOS)</th></tr></thead>
+        <tbody>
+          <tr><td class="py-3 pr-3 font-semibold">Совместимость</td><td class="py-3 pr-3 text-slate-300">✔ полная: любой Windows-софт, 1С, ЭДО, драйверы</td><td class="py-3 pr-3 text-slate-300">✔ полная</td><td class="py-3 pr-3 text-amber-300">⚠ офис/браузер нативно; узкий x86-софт и часть драйверов — эмуляция или никак</td><td class="py-3 pr-3 text-rose-300">⛔ только macOS</td></tr>
+          <tr><td class="py-3 pr-3 font-semibold">Автономность</td><td class="py-3 pr-3 text-slate-300">8–18 ч (Lunar/Panther Lake до 18–25)</td><td class="py-3 pr-3 text-slate-300">7–16 ч</td><td class="py-3 pr-3 text-emerald-300">✔ 20–32 ч — рекорд Windows</td><td class="py-3 pr-3 text-emerald-300">✔ 17–24 ч даже под нагрузкой</td></tr>
+          <tr><td class="py-3 pr-3 font-semibold">Мощность (R23)</td><td class="py-3 pr-3 text-slate-300">8,5–20 тыс.</td><td class="py-3 pr-3 text-slate-300">8–24 тыс. — максимум</td><td class="py-3 pr-3 text-amber-300">≈9,5–10 тыс.</td><td class="py-3 pr-3 text-slate-300">11,5–22 тыс. + лучшая эфф./ватт</td></tr>
+          <tr><td class="py-3 pr-3 font-semibold">Игры/графика</td><td class="py-3 pr-3 text-slate-300">iGPU Arc — лёгкие игры</td><td class="py-3 pr-3 text-emerald-300">✔ сильнейшие iGPU (880M, 8060S)</td><td class="py-3 pr-3 text-rose-300">⛔ Adreno слабая + эмуляция</td><td class="py-3 pr-3 text-amber-300">iGPU мощная, игр мало</td></tr>
+          <tr><td class="py-3 pr-3 font-semibold">Апгрейд памяти</td><td class="py-3 pr-3 text-slate-300">на части моделей слоты</td><td class="py-3 pr-3 text-slate-300">на части моделей слоты</td><td class="py-3 pr-3 text-rose-300">⛔ распаяна</td><td class="py-3 pr-3 text-rose-300">⛔ распаяна</td></tr>
+          <tr><td class="py-3 pr-3 font-semibold">Кому подходит</td><td class="py-3 pr-3 text-slate-300">универсально, «чтобы всё работало»</td><td class="py-3 pr-3 text-slate-300">нужна мощность/графика за разумные деньги</td><td class="py-3 pr-3 text-slate-300">базовые задачи + командировки, софт проверен</td><td class="py-3 pr-3 text-slate-300">если macOS приемлема</td></tr>
+        </tbody>
+      </table>
+      <div class="grid md:grid-cols-3 gap-4 mt-5 text-xs">
+        <div class="rounded-xl border border-emerald-400/25 bg-emerald-400/[.06] p-4"><p class="font-bold text-emerald-300 mb-1">Когда рекордсмены ЛУЧШЕ</p><p class="text-slate-300">Задачи = браузер, почта, документы, звонки, веб-ИИ; важны вес и «жить без розетки»; софт компании проверен на ARM.</p></div>
+        <div class="rounded-xl border border-rose-400/25 bg-rose-400/[.06] p-4"><p class="font-bold text-rose-300 mb-1">Когда ЛУЧШЕ Intel/AMD</p><p class="text-slate-300">Есть специфический Windows-софт (1С, ЭДО, СУБД, драйверы), нужна мощность с запасом, игры/графика или апгрейд памяти.</p></div>
+        <div class="rounded-xl border border-amber-400/25 bg-amber-400/[.06] p-4"><p class="font-bold text-amber-300 mb-1">Компромисс</p><p class="text-slate-300">Intel Lunar/Panther Lake (Swift Go 14 AI, Zenbook UX5406, VivoBook S14 OLED, Galaxy Book5 Pro): автономность почти как у ARM, совместимость x86 — полная.</p></div>
+      </div>
+    </div>
+    <div id="battCards" class="grid lg:grid-cols-2 gap-6"></div>
+  </div>
+</section>
+
+<section id="page-all" class="pt-24 pb-16 hidden">
+  <div class="max-w-7xl mx-auto px-4 md:px-5">
+    <h2 class="font-display text-2xl md:text-4xl gold-text mb-2">Общий рейтинг · 37 конфигураций</h2>
+    <p class="text-slate-400 text-sm mb-5">По умолчанию — сверху самые мощные. 🔋 — рекордсмены автономности · 📋 — справочно (импорт). Ссылки на покупку — внутри карточек на страницах платформ.</p>
+    <div class="flex flex-wrap gap-2 mb-5">
+      <button data-sortkey="power" class="sortbtn active px-4 py-2 rounded-xl glass text-xs md:text-sm border border-transparent">По мощности ↓</button>
+      <button data-sortkey="priceAsc" class="sortbtn px-4 py-2 rounded-xl glass text-xs md:text-sm border border-transparent">Сначала дешёвые</button>
+      <button data-sortkey="priceDesc" class="sortbtn px-4 py-2 rounded-xl glass text-xs md:text-sm border border-transparent">Сначала дорогие</button>
+      <button data-sortkey="weight" class="sortbtn px-4 py-2 rounded-xl glass text-xs md:text-sm border border-transparent">По весу ↑</button>
+      <button data-sortkey="battery" class="sortbtn px-4 py-2 rounded-xl glass text-xs md:text-sm border border-transparent">По автономности ↓</button>
+    </div>
+    <div class="glass rounded-3xl p-4 md:p-7 overflow-x-auto"><div id="allTableWrap" class="min-w-[900px]"></div></div>
+  </div>
+</section>
+
+<footer class="border-t border-white/10 py-8">
+  <div class="max-w-7xl mx-auto px-4 md:px-5 text-xs text-slate-500 space-y-1">
+    <p>«Подбор ноутбуков» · наличие и цены проверены 11.09.2026: KNS, Ситилинк, DNS, Регард, Технопарк, М.Видео, dikotech, mi.moscow, electrogor, PiterGSM, re:Store, Ozon и др. Остатки меняются ежедневно — перед счётом перепроверяйте.</p>
+    <p>Баллы мощности — ориентир (Cinebench R23 multi). Батарея/время — по спецификациям и обзорам; «≈/уточнить» — нет данных по партии. Габариты — корпуса: Ш × Г × Т.</p>
+  </div>
+</footer>
+
+<div id="glossaryModal" class="fixed inset-0 z-[70] hidden items-center justify-center p-4" style="background:rgba(3,5,12,.75)">
+  <div class="glass rounded-3xl max-w-3xl w-full max-h-[85vh] overflow-y-auto p-6 md:p-9 relative">
+    <button onclick="closeGlossary()" class="absolute top-4 right-4 w-9 h-9 rounded-xl glass text-slate-300 hover:bg-white/10">✕</button>
+    <h2 class="font-display text-xl md:text-2xl gold-text mb-5">📖 Словарь терминов — простыми словами</h2>
+    <div class="space-y-4 text-sm text-slate-300">
+      <p class="term pl-4"><b class="text-amber-300">NPU (ИИ-блок)</b> — отдельный экономичный чип для ИИ-задач: шумоподавление и фон в звонках, локальные нейросети — почти не тратит батарею. Измеряется в TOPS.</p>
+      <p class="term pl-4"><b class="text-amber-300">Copilot+ PC</b> — сертификат Microsoft для ноутбуков с NPU от 40 TOPS. Если ИИ нужен только «в браузере» — сертификат ничего не даёт.</p>
+      <p class="term pl-4"><b class="text-amber-300">x86 и ARM</b> — две архитектуры процессоров. Windows-софт исторически писали под x86 (Intel/AMD); на ARM (Snapdragon, Apple) он идёт через эмуляцию: офис и браузер — отлично, узкий профсофт и старые драйверы — не всегда.</p>
+      <p class="term pl-4"><b class="text-amber-300">TDP / энергоемкость</b> — сколько ватт потребляет процессор (минимум в простое — максимум под нагрузкой). Меньше = тише, холоднее, дольше от батареи. «БП 65 Вт» — мощность зарядника.</p>
+      <p class="term pl-4"><b class="text-amber-300">Вт·ч и время без зарядки</b> — ёмкость аккумулятора. Реальное время зависит от яркости и задач; «до 24–32 ч» — видео при низкой яркости.</p>
+      <p class="term pl-4"><b class="text-amber-300">Cinebench R23 (multi)</b> — тест процессора во всех ядрах: 7–12 тыс. — офис и интернет; 13–18 тыс. — запас на годы; 20+ тыс. — рабочая станция.</p>
+      <p class="term pl-4"><b class="text-amber-300">Распаяна (LPDDR5x)</b> — память припаяна к плате: добавить/заменить нельзя. Такие берём сразу с 32 ГБ.</p>
+      <p class="term pl-4"><b class="text-amber-300">SO-DIMM (слоты) и двухканал</b> — съёмные планки. «16 + 16 ГБ» — две одинаковые планки: и 32 ГБ объёма, и прибавка скорости.</p>
+      <p class="term pl-4"><b class="text-amber-300">OLED / IPS, Гц</b> — OLED: идеальный чёрный и сочные цвета; IPS: спокойная картинка без мерцания. Гц — плавность.</p>
+      <p class="term pl-4"><b class="text-amber-300">Без ОС / DOS</b> — ноутбук без Windows (дешевле); система ставится отдельно — для юрлица штатная практика.</p>
+      <p class="term pl-4"><b class="text-amber-300">Гравировка</b> — нанесение русских букв на английскую клавиатуру лазером: ~2–3 тыс. ₽, сутки.</p>
+      <p class="term pl-4"><b class="text-amber-300">Параллельный импорт / EAC</b> — ввоз без гарантии производителя в РФ (гарантию даёт продавец). EAC — знак сертификации.</p>
+      <p class="term pl-4"><b class="text-amber-300">Цена «для организаций»</b> — цена по счёту от юрлица (обычно с НДС; документы — УПД).</p>
+    </div>
+  </div>
+</div>
+<div id="toast" class="fixed bottom-6 left-1/2 z-[80] px-5 py-3 rounded-2xl bg-amber-300 text-black font-bold text-sm shadow-2xl pointer-events-none">Скопировано</div>
+
+<script id="lbdata" type="application/json">
+[
+{"id":"mbpro14","pl":"intel","cat":"ultrabook","nm":"Honor MagicBook Pro 14 (2025)","tag":"Ultra 5 225H / Ultra 9 285H · 3.1K OLED · 92 Вт·ч","cpu":"Intel Core Ultra 5 225H / Ultra 9 285H · до 5,4 ГГц","gpu":"Intel Arc 130T/140T","pw":20000,"disp":"14,6\" 3.1K OLED 3120×2080 · сенсор · 700 нит","wt":"1,37 кг","dim":"32,0 × 23,2 × 1,6 см","os":"Windows 11 Home","bt":["92 Вт·ч","~10–12 ч","28–115 Вт","100 Вт"],"bh":11,"ram":["ok32","32 ГБ LPDDR5x-8400 — распаяна (32 ГБ с завода)"],"ai":"npu","cpun":"285H = 16 ядер (6P+8E+2LPE) до 5,4 ГГц, Arc 140T, ~20–21 тыс. R23; 225H = 14 ядер, Arc 130T, ~14 тыс. R23 (−30% в мульти, в офисных задачах разница почти не чувствуется). Для базовых задач выгоднее 225H (Технопарк 139 990 ₽ / DNS 139 999 ₽); 285H брать, если нужен запас под тяжёлые задачи.","ain":"Самая ёмкая батарея среди x86 (92 Вт·ч). Официальная гарантия Honor в РФ.","pf":139990,"tier":"mid","kbd":"DNS — RU; у KNS/Технопарк уточнить","verd":"Лучший баланс мощность/экран/батарея среди официальных моделей.","sh":[
+["Технопарк · 5301ANXJ (225H/32/1ТБ)","139 990 ₽","https://www.technopark.ru/noutbuki-honor-magicbook-pro-14-5301anxj/","ok",1,"Москва","check","в наличии"],
+["DNS · 5301ANXH (225H/32/1ТБ)","139 999 ₽","https://www.dns-shop.ru/product/88f456ed1357d9cb/146-noutbuk-honor-magicbook-pro-14-5301anxhfmb-p-seryj/","ok",1,"Москва, 42 магазина","ru",""],
+["DNS · 5301ANXA (285H/32/1ТБ)","179 999 ₽","https://www.dns-shop.ru/product/4cbf86901358d9cb/146-noutbuk-honor-magicbook-pro-14-5301anxafmb-p-belyj/","ok",1,"Москва","ru","белый"],
+["KNS · 5301ANXE (285H/32/1ТБ)","172 059 ₽","https://www.kns.ru/product/noutbuk-honor-magicbook-pro-14-2025-5301anxe/","ok",1,"Москва, склад","check","для организаций, оферта ЕАИСТ"]]},
+{"id":"mbpro14-2026","pl":"intel","cat":"ultrabook","nm":"Honor MagicBook Pro 14 (2026) · 5211T","tag":"Panther Lake Ultra 5 338H + Arc B370 · 32 ГБ","cpu":"Intel Core Ultra 5 338H (Panther Lake, 2026)","gpu":"Intel Arc B370","pw":14500,"disp":"14,6\" 3.1K OLED 3120×2080","wt":"1,37 кг","dim":"32,0 × 23,2 × 1,6 см","os":"Windows 11 Home","bt":["92 Вт·ч (уточнить)","~10–14 ч","28–85 Вт","100 Вт"],"bh":12,"ram":["ok32","32 ГБ LPDDR5x — распаяна (32 ГБ с завода)"],"ai":"copilot","ain":"Copilot+ (NPU 50 TOPS). Свежая платформа 2026 года в наличии в DNS.","pf":142499,"tier":"mid","kbd":"DNS — английская/русская","verd":"Новейший Intel + большой OLED по цене прошлогодних флагманов.","sh":[
+["DNS · 5211T (338H/32/1ТБ)","142 499 ₽ (159 999 −11%)","https://www.dns-shop.ru/product/fa3563545423d582/146-noutbuk-honor-magicbook-pro-14-5211t-seryj/","ok",1,"Москва, 3 магазина","ru",""]]},
+{"id":"zenbook-1352","pl":"intel","cat":"ultrabook","nm":"ASUS Zenbook 14 OLED · UX3405CA-ST1093","tag":"1,2 кг · 3K OLED · 32 ГБ · Ultra 9 285H","cpu":"Intel Core Ultra 9 285H · 16 ядер · до 5,4 ГГц","gpu":"Intel Arc 140T","pw":20000,"disp":"14\" 3K OLED 2880×1800","wt":"1,20–1,28 кг","dim":"31,2 × 22,0 × 1,5 см","os":"без ОС (под установку Windows)","bt":["75 Вт·ч","~9–11 ч","28–115 Вт","65 Вт"],"bh":10,"ram":["ok32","32 ГБ LPDDR5x — распаяна (именно эта конфигурация; 16 ГБ не подходят)"],"ai":"npu","cpun":"ST1093 (285H, ~20–21 тыс. R23) против снятой с наличия ST1352 (255H, ~18 тыс.): +15% мульти при том же TDP и цене — берём 285H. Версии 16 ГБ (ST1350/QL683) под требование 32 ГБ не подходят.","ain":"Ситилинк: клавиатура с русскими буквами, кнопка «Купить как юрлицо».","pf":181720,"tier":"premium","kbd":"Ситилинк — с русскими буквами","verd":"Самый лёгкий из мощных Intel в наличии.","sh":[
+["Ситилинк · ST1093 (285H/32/512)","181 720 ₽","https://www.citilink.ru/product/noutbuk-asus-zenbook-ux3405ca-st1093-ul9-285h-32gb-ssd512gb-140t-14-ol-2154133/","ok",1,"Москва","ru","в наличии, кнопка «Купить как юрлицо»"]]},
+{"id":"t14-g5-255h","pl":"intel","cat":"laptop","nm":"Lenovo ThinkPad T14 Gen 5 · 21QCA03SCD","tag":"255H + 2.8K OLED + слоты памяти (16→32)","cpu":"Intel Core Ultra 7 255H · 16 ядер","gpu":"Intel Arc","pw":17500,"disp":"14\" 2.8K OLED 2880×1800","wt":"1,38 кг","dim":"≈31,6 × 22,4 × 1,8 см","os":"Windows 11 Pro","bt":["52,5 Вт·ч","~8–10 ч","28–64 Вт","65 Вт"],"bh":9,"ram":["up","16 ГБ SO-DIMM DDR5 → +16 ГБ = 32 ГБ двухканал (макс. 96 ГБ)"],"ai":"npu","ain":"Мощный H-процессор + OLED + обслуживаемая память — редкое сочетание.","pf":186221,"tier":"premium","kbd":"партия SCD — уточнить у KNS","verd":"Когда нужны и мощность, и рост памяти.","sh":[
+["KNS (для организаций)","186 221 ₽","https://www.kns.ru/product/noutbuk-lenovo-thinkpad-t14-gen-5-21qca03scd/","ok",1,"Москва, склад","check","самовывоз 14.09"]]},
+{"id":"redmi-255h","pl":"intel","cat":"ultrabook","nm":"Xiaomi Redmi Book Pro 14 (2025) · Ultra 7 255H","tag":"32 ГБ + 2.8K 120 Гц · импорт","cpu":"Intel Core Ultra 7 255H · 16 ядер","gpu":"Intel Arc 140T","pw":16000,"disp":"14\" 2.8K 2880×1800 · 120 Гц","wt":"1,45 кг","dim":"31,2 × 22,0 × 1,6 см","os":"Windows 11 (CN — под переустановку)","bt":["80 Вт·ч","~10–12 ч","28–64 Вт","100 Вт"],"bh":11,"ram":["ok32","32 ГБ LPDDR5X-8400 — распаяна (с завода)"],"ai":"npu","ain":"Параллельный импорт (CN): русские буквы — гравировка ~2–3 тыс. ₽. B2B-наличие в федеральных сетях на 11.09 не найдено — ниже магазины с наличием, счёт уточнять.","pf":118290,"tier":"mid","kbd":"CN — только английские → гравировка","verd":"Топ за свои деньги, если приемлемы импорт и гравировка.","sh":[
+["Mi.Moscow (JYU4654CN)","118 290 ₽","https://mi.moscow/product/noutbuk-redmi-book-pro-14-2025-ultra7-255h32g1tb28k-jyu4654cn","ok",0,"Москва","eng","счёт уточнить"]]},
+{"id":"redmi-2026","pl":"intel","cat":"ultrabook","nm":"Xiaomi Redmi Book Pro 14 (2026) · Ultra 5 338H","tag":"Panther Lake · 92 Вт·ч · до 20,5 ч · 32 ГБ","cpu":"Intel Core Ultra 5 338H (Panther Lake, 2026)","gpu":"Intel Arc B370","pw":14500,"disp":"14\" 2.8K 120 Гц / 3.1K (по партии)","wt":"≈1,48 кг","dim":"≈31,2 × 22,0 × 1,6 см","os":"Windows 11 (CN)","bt":["92 Вт·ч","до 20,5 ч / ~12–16 ч","≈25–60 Вт","100 Вт"],"bh":16,"ram":["ok32","32 ГБ LPDDR5X — распаяна. ВНИМАНИЕ: партия JYU4740CN = 24 ГБ — не проходит; целевые JYU4752CN / JYU4753CN (32 ГБ)"],"ai":"copilot","ain":"Copilot+ (NPU 50 TOPS). Свежайшая платформа + огромная батарея. B2B: PiterGSM работает по безналу; electrogor/Ozon — счёт уточнять.","pf":138700,"tier":"mid","kbd":"CN — только английские → гравировка (Ozon-партия с RU-раскладкой — исключение)","verd":"Новейшая платформа и рекордная для x86 батарея.","sh":[
+["Electrogor · JYU4752CN (338H/32/1ТБ)","138 700 ₽","https://www.electrogor.ru/noutbuki/xiaomi/noutbuk-xiaomi-book-pro-14-2026-intel-core-ultra-5-338h-1500mhz-14-6-3120x2080-32gb-1tb-intel-arc-graphics-windows-11-home-grey-jyu4752cn.html","ok",0,"Москва","check","в наличии, счёт уточнить"],
+["PiterGSM · JYU4753CN (338H/32/1ТБ, белый)","уточнить","https://pitergsm.ru/catalog/laptops/xiaomi/187532/","check",1,"СПб → Москва","check","юрлицам — безналичный расчёт (политика магазина)"],
+["Ozon · 338H/32/1ТБ, RU-раскладка","уточнить","https://www.ozon.ru/product/xiaomi-redmibook-pro-14-2026-2-8k-120hz-ips-noutbuk-14-intel-core-ultra-5-338h-ram-32-gb-ssd-1024-gb-5134407587/","check",0,"доставка в Москву","ru","Ozon для бизнеса"]]},
+{"id":"redmi-225h","pl":"intel","cat":"ultrabook","nm":"Xiaomi Redmi Book Pro 14 (2025) · Ultra 5 225H","tag":"Тот же корпус, CPU проще — дешевле · 32 ГБ","cpu":"Intel Core Ultra 5 225H · 14 ядер","gpu":"Intel Arc 130T","pw":14000,"disp":"14\" 2.8K 2880×1800 · 120 Гц","wt":"1,45 кг","dim":"31,2 × 22,0 × 1,6 см","os":"Windows 11 (CN)","bt":["80 Вт·ч","~10–12 ч","28–64 Вт","100 Вт"],"bh":11,"ram":["ok32","32 ГБ LPDDR5X-8400 — распаяна (с завода)"],"ai":"npu","cpun":"225H (14 ядер, ~14 тыс. R23) против 255H (16 ядер, ~16 тыс.): для браузера/документов/веб-ИИ разницы практически нет — берём 225H и экономим ~25 тыс. ₽.","ain":"Для базовых задач мощности хватает с большим запасом. М.Видео — вариант с чеком/безналом для юрлица (наличие подтвердить на странице).","pf":91900,"tier":"mid","kbd":"CN — только английские → гравировка","verd":"Самый дешёвый вход в 32 ГБ + 2.8K среди приличных корпусов.","sh":[
+["Dikotech (225H/32/1ТБ, серый)","91 900 ₽","https://www.dikotech.ru/product/noutbuk-xiaomi-redmi-book-pro-14-2025-ultra-5-225h-32gb-1tb-grey","ok",0,"Москва, самовывоз завтра","check","в наличии, счёт уточнить"],
+["Mi.Moscow (JYU4652CN)","106 490 ₽","https://mi.moscow/product/noutbuk-redmi-book-pro-14-2025-ultra5-225h32g1tb28k-jyu4652cn","ok",0,"Москва","eng","счёт уточнить"],
+["М.Видео (JYU4652CN)","уточнить","https://www.mvideo.ru/products/noutbuk-redmi-book-pro-14-2025-ultra5-225h-32g-1tb-28k-jyu4652cn-400682895","check",1,"Москва","check","юрлицам — М.Видео Бизнес, наличие подтвердить"]]},
+{"id":"vivobook-s14","pl":"intel","cat":"ultrabook","nm":"ASUS VivoBook S14 · S3407AA (2026)","tag":"Panther Lake 355 + 32 ГБ в СЛОТАХ — редкость","cpu":"Intel Core Ultra 7 355 (Panther Lake, 8 ядер) · NPU 50 TOPS","gpu":"Intel Graphics (Xe3)","pw":12500,"disp":"14\" OLED WUXGA 1920×1200","wt":"≈1,4 кг","dim":"≈31,5 × 22,3 × 1,6 см","os":"без ОС / Windows 11 (по партии)","bt":["≈75 Вт·ч (уточнить)","~12–16 ч","≈25–60 Вт","65 Вт"],"bh":14,"ram":["up","32 ГБ DDR5 SO-DIMM — в слотах, не распаяна: можно наращивать (максимум уточнить)"],"ai":"copilot","ain":"Copilot+ и обслуживаемая память — единственная такая модель 2026 года в подборке.","pf":128499,"tier":"mid","kbd":"Ситилинк/DNS — с русскими буквами","verd":"Свежая платформа + слоты памяти + официальная продажа юрлицам.","sh":[
+["DNS · S3407AA-SF006 (355/32/1ТБ, без ОС)","128 499 ₽","https://www.dns-shop.ru/product/d3bac2f3f1c0d582/14-noutbuk-asus-vivobook-s14-s3407aa-sf006-seryj/","ok",1,"Москва","ru",""],
+["Ситилинк · S3407AA-SF075","156 990 ₽ (172 990 −9%)","https://www.citilink.ru/product/noutbuk-asus-vivobook-s3407aa-sf075-ul5-325-32gb-ssd1tb-14-ips-wuxga-n-2154080/","ok",1,"Москва, 1356 ПВЗ с 19.09","ru","кнопка «Купить как юрлицо»"]]},
+{"id":"vivobook-s14-oled","pl":"intel","cat":"ultrabook","nm":"ASUS VivoBook S 14 OLED · S5406SA-QD201","tag":"Lunar Lake 258V · 32 ГБ · OLED · без ОС","cpu":"Intel Core Ultra 7 258V (Lunar Lake) · NPU 47 TOPS","gpu":"Intel Arc 140V","pw":11000,"disp":"14\" OLED 1920×1200","wt":"≈1,3 кг","dim":"≈31,2 × 22,1 × 1,4 см","os":"без ОС","bt":["75 Вт·ч","~14–18 ч","17–37 Вт","65 Вт"],"bh":16,"ram":["ok32","32 ГБ LPDDR5x — распаяна (32 ГБ с завода)"],"ai":"copilot","ain":"Copilot+ и отличная автономность Lunar Lake.","pf":120499,"tier":"mid","kbd":"DNS — английская/русская","verd":"Тихий, холодный, долгоживущий — идеален под базовые задачи.","sh":[
+["DNS · QD201 (258V/32/1ТБ, без ОС)","120 499 ₽","https://www.dns-shop.ru/product/369a96486ff5d582/14-noutbuk-asus-vivobook-s-14-oled-s5406sa-qd201-cernyj/","ok",1,"Москва","ru",""]]},
+{"id":"art14-721","pl":"intel","cat":"ultrabook","nm":"Honor MagicBook Art 14 · MRA-721","tag":"Рекордсмен веса: 1,03 кг при 14,6\" OLED","cpu":"Intel Core Ultra 7 155H · 16 ядер","gpu":"Intel Arc","pw":12500,"disp":"14,6\" 3.1K OLED 3120×2080 · сенсор · 3:2","wt":"1,03 кг","dim":"31,7 × 22,4 × 1,15 см","os":"Windows 11 Home","bt":["60 Вт·ч","~10–12 ч","28–64 Вт (лимит корпуса ниже)","65 Вт"],"bh":11,"ram":["ok32","32 ГБ LPDDR5x — распаяна (с завода)"],"ai":"npu","ain":"Съёмная камера-модуль, толщина ~1 см. Ближайший по весу аналог MacBook на Windows.","pf":169990,"tier":"premium","kbd":"Ситилинк/DNS — с русскими буквами","verd":"Если приоритет — вес около килограмма и большой OLED 3:2.","sh":[
+["DNS · MRA-721 зелёный","169 990 ₽","https://www.dns-shop.ru/product/b8c3a9194a41d582/146-noutbuk-honor-magicbook-art-14-mra-721-zelenyj/","ok",1,"Москва","ru","в наличии"],
+["Ситилинк · MRA-721","169 990 ₽ (199 990 −15%)","https://www.citilink.ru/product/noutbuk-honor-magicbook-art-14-mra-721-ul7-155h-32gb-ssd1tb-14-oled-fh-2081697/","ok",1,"Москва, 3 шт с 19.09","ru","кнопка «Купить как юрлицо»"]]},
+{"id":"art14-521","pl":"intel","cat":"ultrabook","nm":"Honor MagicBook Art 14 · MRA-521 / MOOREB-5611T","tag":"1,03 кг · 2024 (125H) и 2025 (новая платформа)","cpu":"MRA-521: Ultra 5 125H (2024) · MOOREB-5611T: Art 14 2025 (новая платформа, уточнить)","gpu":"Intel Arc","pw":12000,"disp":"14,6\" 3.1K OLED 3120×2080 · сенсор · 3:2","wt":"1,03 кг","dim":"31,7 × 22,4 × 1,15 см","os":"Windows 11 Home","bt":["60 Вт·ч","~10–12 ч","28–64 Вт","65 Вт"],"bh":11,"ram":["ok32","32 ГБ LPDDR5x — распаяна (с завода); конфигурацию MOOREB сверить при заказе"],"ai":"npu","cpun":"MRA-521 (125H, 2024) — дешевле, проверенная платформа. MOOREB-5611T (Art 14 2025) — новее: обычно это Lunar Lake (Copilot+, энергоемкость 17–37 Вт вместо 28–64 Вт, автономность выше), но мульти чуть слабее 125H. Для базовых задач и батареи выгоднее 2025; для экономии — MRA-521. Точный CPU MOOREB подтвердить у DNS.","ain":"Для базовых задач 125H достаточно с запасом.","pf":149999,"tier":"mid","kbd":"DNS — с русскими буквами","verd":"Самый лёгкий ноутбук подборки; две генерации на выбор.","sh":[
+["DNS · MRA-521 зелёный","149 999 ₽","https://www.dns-shop.ru/product/683870454a42d582/146-noutbuk-honor-magicbook-art-14-mra-521-zelenyj/","ok",1,"Москва","ru","в наличии"],
+["DNS · MOOREB-5611T (Art 14 2025, коричневый)","179 990 ₽","https://www.dns-shop.ru/product/66c425a1085296eb/146-noutbuk-honor-magicbook-art-14-mooreb-5611t-koricnevyj/","ok",1,"Москва","ru","конфигурацию сверить"]]},
+{"id":"zenbook-ux5406","pl":"intel","cat":"ultrabook","nm":"ASUS Zenbook 14 OLED · UX5406SA-PV298W","tag":"Lunar Lake 258V · 32 ГБ · 1,2 кг · Win 11","cpu":"Intel Core Ultra 7 258V (Lunar Lake) · NPU 47 TOPS","gpu":"Intel Arc 140V","pw":11000,"disp":"14\" 2.8K OLED 2880×1800","wt":"≈1,2 кг","dim":"≈31,2 × 22,0 × 1,5 см","os":"Windows 11 Home","bt":["75 Вт·ч","~14–18 ч","17–37 Вт","65 Вт"],"bh":16,"ram":["ok32","32 ГБ LPDDR5x — распаяна (с завода)"],"ai":"copilot","ain":"Copilot+; премиальный компактный корпус.","pf":167999,"tier":"premium","kbd":"DNS — английская/русская","verd":"Автономность как у ARM, но совместимость x86 — полная.","sh":[
+["DNS · PV298W (258V/32/1ТБ)","167 999 ₽","https://www.dns-shop.ru/product/5ae2c5c54e3ed582/14-noutbuk-asus-zenbook-14-oled-ux5406sa-pv298w-seryj/","ok",1,"Москва","ru",""]]},
+{"id":"galaxy-book5","pl":"intel","cat":"ultrabook","nm":"Samsung Galaxy Book5 Pro · NP940XHA","tag":"Lunar Lake 258V · 32 ГБ · AMOLED · 1,2 кг","cpu":"Intel Core Ultra 7 258V (Lunar Lake) · NPU 47 TOPS","gpu":"Intel Arc 140V","pw":11000,"disp":"14\" AMOLED 2880×1800 · сенсор","wt":"≈1,2 кг","dim":"≈31,2 × 22,4 × 1,2 см","os":"Windows 11 Home","bt":["65,8 Вт·ч (уточнить)","~14–18 ч","17–37 Вт","65 Вт"],"bh":16,"ram":["ok32","32 ГБ LPDDR5x — распаяна (с завода)"],"ai":"copilot","ain":"Copilot+; AMOLED-экран и тонкий корпус.","pf":174999,"tier":"premium","kbd":"DNS — английская/русская","verd":"Альтернатива Zenbook/Lunar Lake с AMOLED.","sh":[
+["DNS · NP940XHA (258V/32/1ТБ)","174 999 ₽","https://www.dns-shop.ru/product/e738940519c6d9cb/14-noutbuk-samsung-galaxy-book5-pro-np940xha-seryj/","ok",1,"Москва","ru",""]]},
+{"id":"yoga-9i","pl":"intel","cat":"ultrabook","bc":1,"nm":"Lenovo Yoga 9i 2-in-1 Aura Edition 14","tag":"Трансформер 360° · OLED · до ~25–28 ч","cpu":"Gen 10: Ultra 7 258V · Gen 11 (2026): Ultra 7 355","gpu":"Intel Arc 140V / Intel Graphics","pw":11500,"disp":"14\" 2.8K/3K OLED · сенсор · 360°","wt":"≈1,4 кг","dim":"≈31,8 × 22,3 × 1,6 см","os":"Windows 11","bt":["70–83 Вт·ч","до ~25–28 ч видео / ~15 ч нагрузки","17–60 Вт","65 Вт"],"bh":25,"ram":["pick32","16 или 32 ГБ LPDDR5x распаяна — брать строго 32 ГБ"],"ai":"copilot","cpun":"258V (Lunar Lake, 8 ядер, 17–37 Вт) — рекордная батарея и Copilot+; 355 (Panther Lake, 8 ядер, 25–60 Вт) — чуть быстрее и новее. Для трансформера важнее батарея → 258V.","ain":"NPU 45–50 TOPS, стилус и режим планшета. Живого наличия в Москве на 11.09 нет — под заказ.","pf":null,"plb":"≈150 000 ₽ (уточнить)","tier":"premium","kbd":"уточнить у продавца","verd":"Рекордсмен автономности среди трансформеров; наличие — под заказ.","vs":{"p":["Полная совместимость x86 — как у всей страницы Intel: любой корп. софт, 1С, драйверы","Трансформер 360° + стилус — уникален для подборки","До 25–28 ч — вдвое больше, чем у H-версий Intel (10–12 ч)","Copilot+ и тихая работа энергоэффективных U/V-ядер"],"c":["Мультоядерность ≈11,5 тыс. R23 — ниже H-серий Intel (до 20 тыс.)","Память распаяна — апгрейда нет (у T14/ProBook слоты)","В Москве нет живого наличия — только под заказ, ≈150 тыс.+","OLED-трансформеры дороже обычных ультрабуков при том же классе CPU"],"v":"ЛУЧШЕ страниц Intel/AMD по автономности, тишине и форм-фактору; ХУЖЕ по мощности и доступности. Брать, если нужны планшет-ноутбук и «жить без розетки»."},"sh":[
+["Lenovo Russia (каталог)","уточнить","https://www.lenovo.com/ru/ru/p/laptops/yoga/yoga-2-in-1-series/lenovo-yoga-9i-2-in-1-gen-11-aura-edition-14-inch-intel/len101y0074","catalog",1,"заказ через Lenovo","check","конфигурацию 32 ГБ — у менеджера"],
+["KNS (серия Yoga)","уточнить","https://www.kns.ru/catalog/noutbuki/lenovo/yoga/","check",1,"Москва, склад","check","наличие 9i Aura — запросом"]]},
+{"id":"swift-16gb","pl":"intel","cat":"ultrabook","nm":"Acer Swift Go 14 · SFG14-75-58NB (16 ГБ)","tag":"⛔ в наличии и дёшево, но 16 ГБ распаяна — требование «32 ГБ» НЕ выполняет","cpu":"Ultra 5 226V (Lunar Lake) · NPU 47 TOPS","gpu":"Intel Arc 130V","pw":10000,"disp":"14\" WUXGA IPS 120 Гц","wt":"1,24–1,39 кг","dim":"≈31,3 × 21,8 × 1,5 см","os":"без ОС (Win 11 Pro +15,7 тыс.)","bt":["≈65 Вт·ч","~14–18 ч","17–37 Вт","65 Вт"],"bh":16,"ram":["fail","16 ГБ LPDDR5x распаяна, апгрейд невозможен → до 32 ГБ не довести. Если 32 ГБ обязательны — берите 974A ниже"],"ai":"copilot","ain":"Copilot+ и отличная автономность, но только 16 ГБ — для справки.","pf":101336,"tier":"mid","kbd":"EAC — уточнить у KNS","verd":"Только если готовы жить с 16 ГБ (для браузера/документов хватает).","sh":[
+["KNS · 58NB (226V/16/1ТБ, без ОС)","101 336 ₽","https://www.kns.ru/product/noutbuk-acer-swift-go-14-ai-sfg14-75-58nb/","ok",1,"Москва, склад","check","Win 11 Pro — 117 024 ₽"]]},
+{"id":"probook-155h","pl":"intel","cat":"laptop","nm":"HP ProBook 440 G11 · CT1L2PC (Ultra 7 155H)","tag":"H-процессор + 1 ТБ + слоты памяти · Win 11 Pro","cpu":"Intel Core Ultra 7 155H · 16 ядер","gpu":"Intel Graphics","pw":11500,"disp":"14\" WUXGA 1920×1200 IPS","wt":"1,39 кг","dim":"≈31,9 × 22,4 × 1,8 см","os":"Windows 11 Pro","bt":["56 Вт·ч","~9–11 ч","28–64 Вт","65 Вт"],"bh":10,"ram":["up","16 ГБ DDR5 SO-DIMM (2 слота) → +16 ГБ = 32 ГБ двухканал (макс. 32 ГБ)"],"ai":"npu","ain":"В поставке CT1L2PC нет кабеля питания (указано KNS) — докупается отдельно.","pf":125360,"tier":"mid","kbd":"CT1L2PC-ENG — английская раскладка","verd":"Самый мощный ProBook: 155H + 1 ТБ + Win 11 Pro из коробки.","sh":[
+["KNS · CT1L2PC-ENG (для организаций)","125 360 ₽","https://www.kns.ru/product/noutbuk-hp-probook-440-g11-ct1l2pc-eng/","ok",1,"Москва, самовывоз сегодня","eng","без кабеля питания"]]},
+{"id":"swift-974a","pl":"intel","cat":"ultrabook","nm":"Acer Swift Go 14 AI · SFG14-75-974A","tag":"Copilot+ Lunar Lake · 32 ГБ · рекордная автономность","cpu":"Intel Core Ultra 9 288V (Lunar Lake) · NPU 47 TOPS","gpu":"Intel Arc 140V","pw":11000,"disp":"14\" WUXGA 1920×1200","wt":"1,24–1,39 кг","dim":"≈31,3 × 21,8 × 1,5 см","os":"без ОС / Windows 11 Pro","bt":["≈65 Вт·ч","~14–18 ч","17–37 Вт","65 Вт"],"bh":16,"ram":["ok32","32 ГБ LPDDR5x — распаяна (с завода)"],"ai":"copilot","ain":"Самая низкая энергоемкость (17–37 Вт) → до 2 рабочих дней без розетки. DNS дешевле KNS на ~20 тыс.","pf":131999,"tier":"mid","kbd":"DNS — RU; KNS (EAC) — уточнить","verd":"Лучшая автономность среди x86 в наличии; KNS — НДС и ЕАИСТ.","sh":[
+["DNS · 974A синий (288V/32/1ТБ)","131 999 ₽","https://www.dns-shop.ru/product/585dc34c976cd582/14-noutbuk-acer-swift-go-14-ai-sfg14-75-974a-sinij/","ok",1,"Москва","ru","в наличии"],
+["KNS · без ОС (для организаций)","151 538 ₽","https://www.kns.ru/product/noutbuk-acer-swift-go-14-ai-sfg14-75-974a/","ok",1,"Москва, склад","check","самовывоз 14.09"],
+["KNS · с Windows 11 Pro","167 226 ₽","https://www.kns.ru/product/noutbuk-acer-swift-go-14-ai-sfg14-75-974a-wpro/","ok",1,"Москва, склад","check",""]]},
+{"id":"x1-carbon","pl":"intel","cat":"ultrabook","nm":"Lenovo ThinkPad X1 Carbon Gen 12 · 32 ГБ","tag":"Эталон бизнес-ультрабука: 1,08 кг, карбон","cpu":"Intel Core Ultra 7 155U / 165U · 12 ядер (vPro у 165U)","gpu":"Intel Graphics","pw":10000,"disp":"14\" WUXGA IPS (есть 2.8K OLED-версии)","wt":"1,08–1,09 кг","dim":"31,3 × 21,5 × 1,5 см","os":"Windows 11 Pro","bt":["57 Вт·ч","~12–15 ч","15–57 Вт","65 Вт"],"bh":13,"ram":["ok32","32 ГБ LPDDR5x — распаяна (с завода)"],"ai":"npu","cpun":"165U и 155U почти равны по мощности (~9,5–10 тыс. R23): у 165U добавлены vPro (удалённое управление корп. парком) и чуть быстрее графика. Если vPro не нужен — берём 155U: дешевле на ~7 тыс. ₽ при том же корпусе и батарее.","ain":"Версия 165U/1ТБ (219 999 ₽) в DNS закончилась — в наличии 165U/512 и 155U/512.","pf":184999,"tier":"premium","kbd":"DNS — английская/русская","verd":"Вес, статус, клавиатура ThinkPad; мощность умеренная — плата за тонкий корпус.","sh":[
+["DNS · 155U/32/512, Win11 Pro","184 999 ₽","https://www.dns-shop.ru/product/ba90191dc448d582/14-noutbuk-lenovo-thinkpad-x1-carbon-gen-12-cernyj/","ok",1,"Москва","ru","в наличии"],
+["DNS · 165U/32/512, Win11 Pro","191 999 ₽","https://www.dns-shop.ru/product/29c59bd9c449d582/14-noutbuk-lenovo-thinkpad-x1-carbon-gen-12-cernyj/","ok",1,"Москва, 3 магазина","ru","vPro — если нужен"]]},
+{"id":"x1-2in1","pl":"intel","cat":"ultrabook","nm":"Lenovo ThinkPad X1 2-in-1 Gen 10 Aura Edition","tag":"Трансформер 360° · 255U · 32 ГБ · Win 11 Pro","cpu":"Intel Core Ultra 7 255U · 12 ядер (Arrow Lake-U)","gpu":"Intel Arc","pw":9500,"disp":"14\" WUXGA IPS · сенсор · 360°","wt":"≈1,3 кг","dim":"≈31,3 × 21,8 × 1,4 см","os":"Windows 11 Pro","bt":["57 Вт·ч","~12–15 ч","15–57 Вт","65 Вт"],"bh":13,"ram":["ok32","32 ГБ LPDDR5x — распаяна (с завода)"],"ai":"npu","ain":"Флагманский трансформер ThinkPad с пером.","pf":215999,"tier":"premium","kbd":"DNS — английская/русская","verd":"Когда нужен статусный планшет-ноутбук на Windows Pro.","sh":[
+["DNS · 255U/32/1ТБ, Win11 Pro","215 999 ₽","https://www.dns-shop.ru/product/e90031dbda59d9cb/14-noutbuk-lenovo-thinkpad-x1-2-in-1-gen-10-aura-edition-seryj/","ok",1,"Москва","ru",""]]},
+{"id":"t14-g5-165u","pl":"intel","cat":"laptop","nm":"Lenovo ThinkPad T14 Gen 5 · Intel (165U/155U)","tag":"32 ГБ в слотах сразу + Win 11 Pro / без ОС","cpu":"Intel Core Ultra 7 165U / 155U · 12 ядер","gpu":"Intel Graphics","pw":9500,"disp":"14\" WUXGA 1920×1200 IPS","wt":"1,31–1,38 кг","dim":"≈31,6 × 22,4 × 1,8 см","os":"Windows 11 Pro / без ОС","bt":["52,5 Вт·ч","~12–14 ч","15–57 Вт","65 Вт"],"bh":13,"ram":["up","32 ГБ DDR5 в слотах SO-DIMM (2 шт) — можно нарастить до 96 ГБ"],"ai":"npu","cpun":"165U против 155U: разница минимальна (~5% и vPro у 165U). Если vPro не нужен — берём конфигурацию 155U: дешевле на ~30 тыс. ₽ при той же памяти и батарее.","ain":"US-партии (NUS/EHFW): раскладку уточнить. Память уже 32 ГБ и расширяемая — редкость.","pf":124147,"tier":"mid","kbd":"US-партии — русские буквы уточнить/гравировка","verd":"Корпоративная классика с обслуживаемой памятью.","sh":[
+["KNS · 21ML00EHFW (155U/16, без ОС)","124 147 ₽","https://www.kns.ru/product/noutbuk-lenovo-thinkpad-t14-gen-5-21ml00ehfw/","ok",1,"Москва, склад","check","+16 ГБ плашка = 32 двухканал"],
+["KNS · 21ML00EHFW-wpro (Win 11 Pro)","139 835 ₽","https://www.kns.ru/product/noutbuk-lenovo-thinkpad-t14-gen-5-21ml00ehfw-wpro/","ok",1,"Москва, склад","check",""],
+["KNS · 21ML008NUS (165U/32/512, Win11 Pro)","170 278 ₽","https://www.kns.ru/product/noutbuk-lenovo-thinkpad-t14-gen-5-21ml008nus/","ok",1,"Москва, склад","eng","32 ГБ уже установлено"]]},
+{"id":"t14s-intel","pl":"intel","cat":"ultrabook","nm":"Lenovo ThinkPad T14s Gen 6 · Intel (255U / 268V)","tag":"1,24–1,37 кг · Lunar/Arrow Lake · Win 11 Pro","cpu":"Intel Core Ultra 7 255U (21R1, слоты DDR5) / 268V Lunar Lake (21QX, 32 ГБ распаяна)","gpu":"Intel Arc / Arc 140V","pw":10500,"disp":"14\" WUXGA 1920×1200 IPS (2167097 — сенсор)","wt":"1,24–1,37 кг","dim":"≈31,4 × 22,3 × 1,6 см","os":"Windows 11 Pro","bt":["58 Вт·ч","~13–18 ч (268V) / ~10–14 ч (255U)","15–57 Вт","65 Вт"],"bh":14,"ram":["up","по конфигурации: 268V — 32 ГБ распаяна (ОК); 21R1 (255U) — 16 ГБ DDR5 SO-DIMM → +16 ГБ = 32 двухканал; 2167109 — 16 ГБ, добавлять"],"ai":"copilot","cpun":"268V (Lunar Lake, 8 ядер, 17–37 Вт, 32 ГБ распаяна, Copilot+) — лучше для командировок: батарея 13–18 ч против 10–14 ч у 255U. 255U (Arrow Lake-U, 12 ядер, слоты DDR5) — лучше, если важен апгрейд памяти и цена ниже на ~50 тыс. Мульти-производительность почти равная.","ain":"Тонкий бизнес-ультрабук; ENG-партии помечены.","pf":149990,"tier":"premium","kbd":"21QX/ENG-партии — английская; 21R1 — русская","verd":"Лёгкость ThinkPad + автономность; версию памяти выбирать внимательно.","sh":[
+["Ситилинк · 2167109 (255U/16/512)","149 990 ₽","https://www.citilink.ru/product/noutbuk-lenovo-thinkpad-t14s-g6-ul7-255u-16gb-ssd512gb-14-ips-wuxga-w1-2167109/","ok",1,"Москва","check","в наличии; +16 ГБ плашка"],
+["KNS · 21R1002TUS (255U/16/512)","159 254 ₽","https://www.kns.ru/product/noutbuk-lenovo-thinkpad-t14s-gen-6-21r1002tus/","ok",1,"Москва, склад","ru","+16 ГБ плашка = 32 двухканал"],
+["Ситилинк · 2167097 (268V/32/1ТБ, сенсор)","199 990 ₽","https://www.citilink.ru/product/noutbuk-lenovo-thinkpad-t14s-g6-ul7-268v-32gb-ssd1tb-140v-14-ips-touch-2167097/","ok",1,"Москва","check","в наличии; 32 ГБ распаяна — ОК"],
+["KNS · 21QX000KUS ENG (268V/32/1ТБ)","212 339 ₽","https://www.kns.ru/product/noutbuk-lenovo-thinkpad-t14s-gen-6-21qx000kus-eng/","ok",1,"Москва, склад","eng","32 ГБ распаяна — ОК"],
+["DNS · T14s Gen 6","215 999 ₽","https://www.dns-shop.ru/product/004581c11da8d9cb/14-noutbuk-lenovo-thinkpad-t14s-gen-6-cernyj/","ok",1,"Москва","ru","конфигурацию сверить"]]},
+{"id":"probook-125u","pl":"intel","cat":"laptop","nm":"HP ProBook 440 G11 · Ultra 5 125U","tag":"Самый доступный вход в «32 ГБ двухканал»: 16 ГБ + слот","cpu":"Intel Core Ultra 5 125U · 12 ядер","gpu":"Intel Graphics","pw":8500,"disp":"14\" WUXGA 1920×1200 IPS","wt":"1,39–1,4 кг","dim":"≈31,9 × 22,4 × 1,8 см","os":"DOS / Windows 11 Pro (+15,7 тыс.)","bt":["56 Вт·ч","~10–12 ч","15–57 Вт","65 Вт"],"bh":11,"ram":["up","16 ГБ DDR5 SO-DIMM (2 слота) → +плашка 16 ГБ (~4–6 тыс. ₽) = 32 ГБ двухканал (макс. 32 ГБ)"],"ai":"npu","ain":"KNS — Power Partner HP: НДС, ЕАИСТ, самовывоз в Москве.","pf":91754,"tier":"mid","kbd":"официальная поставка HP — уточнить у KNS","verd":"Минимальная цена входа в требования (32 ГБ двухканалом) + сервис HP.","sh":[
+["KNS · A38B9ET (DOS, для организаций)","91 754 ₽","https://www.kns.ru/product/noutbuk-hp-probook-440-g11-a38b9et/","ok",1,"Москва, склад","check","в наличии"],
+["Citilink · 2134371 (125U/16/512, DOS)","102 750 ₽","https://www.citilink.ru/product/noutbuk-hp-probook-440-g11-ul5-125u-16gb-ssd512gb-14-wuxga-dos-silver-2134371/","ok",1,"Москва","check","в наличии, кнопка «Купить как юрлицо»"],
+["KNS · A38B9ET-wpro (Win 11 Pro)","107 442 ₽","https://www.kns.ru/product/noutbuk-hp-probook-440-g11-a38b9et-wpro/","ok",1,"Москва, склад","check","ОС в комплекте"]]},
+{"id":"matebook-gt","pl":"intel","cat":"ultrabook","nm":"Huawei MateBook 14 / GT 14 (FLMH-X / ENZH-X)","tag":"⚠️ 30,8 × 22,4 см — УЖЕ допуска · 155H · 32 ГБ · OLED","cpu":"Intel Core Ultra 7 155H · 16 ядер","gpu":"Intel Arc","pw":12500,"disp":"14,2\" OLED 2880×1920 (GT: 144 Гц, сенсор)","wt":"≈1,49 кг","dim":"⚠️ 30,8 × 22,4 × 1,5 см (вне допуска ±1 см по ширине)","os":"без ОС","bt":["70 Вт·ч","~10–13 ч","28–64 Вт","90 Вт"],"bh":11,"ram":["ok32","32 ГБ LPDDR5x — распаяна (с завода)"],"ai":"npu","cpun":"Один CPU (155H) в двух корпусах: FLMH-X — классический 60 Гц OLED; ENZH-X (GT 14) — 144 Гц + сенсор + мощнее охлаждение. Для презентаций и скролла приятнее GT; для строгой экономии — FLMH-X.","ain":"Хорошая цена и OLED, но корпус на ~1,7 см уже цели — брать только если допуск по ширине не критичен.","pf":124999,"tier":"mid","kbd":"DNS — английская/русская","verd":"Отличное железо вне допуска по размеру — осознанный компромисс.","sh":[
+["DNS · FLMH-X (155H/32/1ТБ, без ОС)","124 999 ₽","https://www.dns-shop.ru/product/b863d38adb20d9cb/142-noutbuk-huawei-matebook-14-flmh-x-seryj/","ok",1,"Москва","ru",""],
+["DNS · GT 14 ENZH-X (155H/32/1ТБ, без ОС)","133 999 ₽","https://www.dns-shop.ru/product/a577dd45db1ed9cb/142-noutbuk-huawei-matebook-gt-14-enzh-x-seryj/","ok",1,"Москва","ru","144 Гц, сенсор"]]},
+{"id":"tuf-a14","pl":"amd","cat":"gaming","ref":1,"nm":"ASUS TUF Gaming A14 (2026) FA401EA","tag":"📋 справочно (импорт): «игровой без видеокарты» Strix Halo","cpu":"AMD Ryzen AI Max+ 392 · 12 ядер Zen 5 · NPU 50 TOPS","gpu":"Radeon 8060S (встроенная) — дискретной нет","pw":24000,"disp":"14\" 2.5K IPS · 165 Гц","wt":"1,48 кг","dim":"≈31,1 × 22,7 × 1,7 см","os":"Windows 11 Pro","bt":["73 Вт·ч","~7–9 ч","55–120 Вт","200 Вт"],"bh":8,"ram":["ok32","32 или 64 ГБ LPDDR5X-8000 — единый пул с iGPU, распаяна (в продаже 32/64 ГБ)"],"ai":"copilot","cpun":"Один CPU (AI Max+ 392), но две партии памяти: 32 ГБ (187 877 ₽) и 64 ГБ (233 152 ₽). Unified-память делится с iGPU: для игр/нейросетей выгоднее 64 ГБ (iGPU получит больше VRAM); для базовых задач хватит 32 ГБ — экономия 45 тыс. ₽.","ain":"В РФ официально не поставляется — только импорт (Ozon); счёт для юрлица через Ozon для бизнеса/импортёра. Статус в подборе: справочно — решение примем позже.","pf":187877,"tier":"premium","kbd":"импортная партия — уточнить","verd":"Максимум мощности в 1,5 кг без дискретки; для базовых задач избыточен многократно.","sh":[
+["Ozon · 32 ГБ/2 ТБ","187 877 ₽","https://www.ozon.ru/product/asus-tuf-gaming-a14-2026-2-5k-165hz-ips-igrovye-noutbuki-amd-ryzen-ai-max-392-noutbuk-14-ram-32-3653241764/","ok",0,"доставка в Москву","check","Ozon для бизнеса"],
+["Ozon · 64 ГБ/1 ТБ","233 152 ₽","https://www.ozon.ru/product/asus-tuf-gaming-a14-2026-2-5k-165hz-ips-igrovye-noutbuki-amd-ryzen-ai-max-392-noutbuk-14-ram-64-gb-3653293384/","ok",0,"доставка в Москву","check",""],
+["ASUS (справочно, США)","$1 999–2 199","https://www.asus.com/us/laptops/for-gaming/tuf-gaming/asus-tuf-gaming-a14-2026-fa401ea/","catalog",0,"—","","ориентир цены"]]},
+{"id":"yoga-pro7-amd","pl":"amd","cat":"ultrabook","nm":"Lenovo Yoga Pro 7 14ASP10","tag":"Единственный корпус ровно 32,5 × 22,8 см (1:1)","cpu":"AMD Ryzen AI 9 365 · 10 ядер Zen 5 · NPU 50 TOPS","gpu":"AMD Radeon 880M","pw":18500,"disp":"14,5\" 3K OLED 2944×1840 · 90 Гц · сенсор · 1000 нит","wt":"1,54 кг","dim":"32,5 × 22,8 × 1,7 см (точно)","os":"без ОС (Regard) / Win 11 Pro (части партий)","bt":["84 Вт·ч","~12–14 ч","28–54 Вт","100 Вт"],"bh":13,"ram":["ok32","32 ГБ LPDDR5x-8000 — распаяна (с завода)"],"ai":"copilot","ain":"Copilot+ PC. Intel-версия (285H) в Москве 11.09 закончилась.","pf":173900,"tier":"premium","kbd":"Регард — русская раскладка","verd":"Точное попадание в габариты; оплата по счёту.","sh":[
+["Регард","173 900 ₽","https://www.regard.ru/product/747348/noutbuk-lenovo-yoga-pro-7-14asp10-83lx000rrk","ok",1,"Москва","ru","без ОС, русская раскладка"]]},
+{"id":"expertbook-p3","pl":"amd","cat":"laptop","nm":"ASUS ExpertBook P3 G2 · PM3406CHA","tag":"Бизнес-AMD: Ryzen 7 260 · 32 ГБ DDR5 в слотах · 1 ТБ","cpu":"AMD Ryzen 7 260 · 8 ядер · до 5,1 ГГц","gpu":"AMD Radeon 780M/740M","pw":15000,"disp":"14\" WUXGA 1920×1200","wt":"1,48 кг","dim":"≈31,4 × 22,7 × 1,8 см","os":"без ОС / Windows 11 Pro","bt":["≈60 Вт·ч (уточнить)","~10–13 ч","28–54 Вт","65 Вт"],"bh":11,"ram":["up","32 ГБ DDR5 установлены; слоты SO-DIMM — расширяемо (максимум уточнить у ASUS)"],"ai":"none","ain":"Бизнес-линейка ExpertBook: обслуживаемый корпус, строгий дизайн. KNS — цена с НДС, оферта ЕАИСТ.","pf":104643,"tier":"mid","kbd":"уточнить у KNS","verd":"Редкий AMD с 32 ГБ и слотами до 120 тыс. — рабочая лошадка.","sh":[
+["KNS · без ОС (для организаций)","104 643 ₽","https://www.kns.ru/product/noutbuk-asus-expertbook-p3-g2-pm3406cha-ly0198-90nx09u2-m00790/","ok",1,"Москва, склад","check","самовывоз 14.09"],
+["KNS · с Windows 11 Pro","120 331 ₽","https://www.kns.ru/product/noutbuk-asus-expertbook-p3-g2-pm3406cha-ly0198-90nx09u2-m00790-wpro/","ok",1,"Москва, склад","check",""]]},
+{"id":"zenbook-um3406","pl":"amd","cat":"ultrabook","nm":"ASUS Zenbook 14 · UM3406GA-QD149","tag":"Ryzen AI 7 445 · 32 ГБ · 1,2 кг · без ОС","cpu":"AMD Ryzen AI 7 445 · 6 ядер Zen 5 · NPU 50 TOPS","gpu":"AMD Radeon 860M","pw":13000,"disp":"14\" WUXGA 1920×1200","wt":"1,2 кг","dim":"≈31,2 × 22,0 × 1,5 см","os":"без ОС","bt":["75 Вт·ч","~12–16 ч","28–54 Вт","65 Вт"],"bh":14,"ram":["ok32","32 ГБ LPDDR5x — распаяна (с завода)"],"ai":"npu","ain":"Свежая платформа AMD 2025 (Gorgon Point) в лёгком корпусе.","pf":116999,"tier":"mid","kbd":"DNS — английская/русская","verd":"Компактный AMD с 32 ГБ до 120 тыс.","sh":[
+["DNS · QD149 (AI 7 445/32/1ТБ, без ОС)","116 999 ₽","https://www.dns-shop.ru/product/afb911baaaf7d582/14-noutbuk-asus-zenbook-14-um3406ga-qd149-cernyj/","ok",1,"Москва, 1 магазин","ru",""]]},
+{"id":"t14s-amd","pl":"amd","cat":"ultrabook","nm":"Lenovo ThinkPad T14s Gen 6 (AMD)","tag":"Copilot+ · 1,25 кг · автономность до 16 ч","cpu":"AMD Ryzen AI 7 PRO 360 / PRO 350 · Zen 5 · NPU 50 TOPS","gpu":"AMD Radeon 880M/860M","pw":16000,"disp":"14\" WUXGA IPS / 2.8K OLED (по конфиг.)","wt":"1,25–1,3 кг","dim":"≈31,4 × 22,3 × 1,6 см","os":"Windows 11 Pro","bt":["58 Вт·ч","~13–16 ч","28–54 Вт","65 Вт"],"bh":14,"ram":["ok32","Конфигурации с 32 ГБ — под заказ/уточнить; партия 21TB000DUS в наличии, но 16 ГБ распаяна — для справки"],"ai":"copilot","cpun":"PRO 360 (8 ядер Zen 5, ~16 тыс. R23) против PRO 350 (6 ядер, ~13 тыс.): для базовых задач хватит 350, но он в наличии только с 16 ГБ ⛔; если нужна машина «на годы» — искать 360/32 ГБ.","ain":"Один из рекордсменов автономности среди x86.","pf":153318,"tier":"premium","kbd":"ENG-партии помечены","verd":"Клавиатура, надёжность и вес 1,25 кг — бизнес-класс.","sh":[
+["KNS · 21TB000DUS ENG (PRO 350/16 ГБ)","153 318 ₽","https://www.kns.ru/product/noutbuk-lenovo-thinkpad-t14s-gen-6-21tb000dus-eng/","ok",1,"Москва, склад","eng","16 ГБ распаяна — для справки, не проходит по памяти"]]},
+{"id":"t14-g5-amd","pl":"amd","cat":"laptop","nm":"Lenovo ThinkPad T14 Gen 5 (AMD) · 21MC000CUS","tag":"Ryzen 7 PRO + слоты памяти · Win 11 Pro","cpu":"AMD Ryzen 7 PRO 8840U · 8 ядер Zen 4","gpu":"AMD Radeon 780M","pw":14000,"disp":"14\" WUXGA 1920×1200 IPS","wt":"1,31 кг","dim":"≈31,6 × 22,4 × 1,8 см","os":"Windows 11 Pro","bt":["52,5 Вт·ч","~13–15 ч","15–30 Вт","65 Вт"],"bh":14,"ram":["up","16 ГБ DDR5 SO-DIMM (2 слота) → +16 ГБ = 32 ГБ двухканал (макс. 96 ГБ)"],"ai":"npu","ain":"US-партия: раскладку уточнить. Экономичный U-процессор — полный день от батареи.","pf":136104,"tier":"mid","kbd":"US — русские буквы уточнить/гравировка","verd":"Обслуживаемый корпус, дешёвая память с ростом до 96 ГБ.","sh":[
+["KNS (для организаций)","136 104 ₽","https://www.kns.ru/product/noutbuk-lenovo-thinkpad-t14-gen-5-21mc000cus/","ok",1,"Москва, склад","eng","версия в блоке «Модификации»"]]},
+{"id":"thinkbook-g7arp","pl":"amd","cat":"laptop","nm":"Lenovo ThinkBook 14 G7 ARP","tag":"Ryzen 5 7535HS · 32 ГБ · слоты · без ОС","cpu":"AMD Ryzen 5 7535HS · 6 ядер Zen 3+","gpu":"AMD Radeon 660M","pw":11000,"disp":"14\" WUXGA 1920×1200","wt":"1,38 кг","dim":"≈31,3 × 22,4 × 1,7 см","os":"без ОС","bt":["≈60 Вт·ч (уточнить)","~10–12 ч","35–54 Вт","65 Вт"],"bh":11,"ram":["up","32 ГБ в слотах SO-DIMM — заменяемо/расширяемо"],"ai":"none","ain":"NPU нет — для «ИИ в браузере» не важно. В наличии в DNS.","pf":100499,"tier":"mid","kbd":"DNS — английская/русская","verd":"Бюджетный вход в AMD с 32 ГБ и слотами.","sh":[
+["DNS · 7535HS/32/1ТБ, без ОС","100 499 ₽","https://www.dns-shop.ru/product/98013e1cdaf8d9cb/14-noutbuk-lenovo-thinkbook-14-g7-arp-seryj/","ok",1,"Москва","ru","в наличии"]]},
+{"id":"thinkbook-g6abp","pl":"amd","cat":"laptop","nm":"Lenovo ThinkBook 14 G6 ABP","tag":"Ryzen 5 7430U · 32 ГБ · слоты · без ОС · самый дешёвый вход","cpu":"AMD Ryzen 5 7430U · 6 ядер","gpu":"AMD Radeon RX Vega 6","pw":8000,"disp":"14\" WUXGA 1920×1200","wt":"1,38 кг","dim":"≈31,3 × 22,4 × 1,7 см","os":"без ОС","bt":["≈45 Вт·ч (уточнить)","~8–10 ч","15–30 Вт","65 Вт"],"bh":9,"ram":["up","32 ГБ в слотах (SO-DIMM DDR4) — заменяемо/расширяемо"],"ai":"none","ain":"Бюджетная платформа без NPU — для «ИИ в браузере» не важно. В наличии в DNS.","pf":89999,"tier":"mid","kbd":"DNS — английская/русская","verd":"Самый дешёвый ноутбук подборки, проходящий по памяти (32 ГБ в слотах).","sh":[
+["DNS · 7430U/32/1ТБ, без ОС","89 999 ₽","https://www.dns-shop.ru/product/247b48c8f4b0d9cb/14-noutbuk-lenovo-thinkbook-14-g6-abp-seryj/","ok",1,"Москва","ru","в наличии"]]},
+{"id":"omnibook-x","pl":"arm","cat":"ultrabook","bc":1,"nm":"HP OmniBook X 14 (Snapdragon)","tag":"Тонкий 1,26 см · ~24–28 ч в тестах","cpu":"Qualcomm Snapdragon X Elite X1E-78-100 / X Plus","gpu":"Qualcomm Adreno","pw":10000,"disp":"14\" 2K/3K OLED · сенсор","wt":"≈1,35 кг","dim":"31,37 × 22,52 × 1,26 см","os":"Windows 11 (ARM)","bt":["59–70 Вт·ч","~24–28 ч в отдельных тестах","~20–40 Вт","65 Вт"],"bh":26,"ram":["pick32","16 или 32 ГБ LPDDR5x распаяна: в Москве найдены только 16 ГБ → 32 ГБ под заказ (16 не проходит)"],"ai":"copilot","ain":"Выдающаяся автономность и тонкий алюминий; ARM-ограничения софта; сестринская OmniBook 5 14 тоже только 16 ГБ.","pf":null,"plb":"уточнить","tier":"mid","kbd":"уточнить у продавца","verd":"Лучше Intel/AMD по автономности и толщине; хуже по совместимости и наличию 32 ГБ.","vs":{"p":["24–28 ч — в 2–3 раза больше большинства Intel/AMD (8–14 ч)","Толщина 1,26 см — тоньше всех x86 подборки","Бесшумный и холодный, мгновенный сон","Алюминиевый корпус премиального вида"],"c":["ARM: узкий корп. софт (модули 1С, драйверы принтеров/СКУД) может не работать — проверить ДО закупки","Мощность ≈10 тыс. R23 — ниже почти всех моделей Intel/AMD","Игры и тяжёлая графика недоступны (Adreno + эмуляция)","Память распаяна; в Москве в наличии только 16 ГБ — 32 ГБ под заказ"],"v":"ЛУЧШЕ по автономности, толщине и тишине; ХУЖЕ по совместимости, мощности и доступности 32 ГБ. Разумно как «дорожный» базовый ноутбук после проверки софта."},"sh":[
+["Line-Power (X1E-78-100/16/1ТБ, 16 ГБ)","уточнить","https://line-power.ru/products/hp-omnibook-x-copilot-14-qualcomm-snapdragon-x1e-78-100-16gb-1tb-ssd-qualcomm-adreno-windows-11-home-meteor-silver-14-fe0013dx","check",0,"Москва","check","счёт уточнить"],
+["HP (страница серии, 32 ГБ)","справочно","https://www.hp.com/us-en/laptops-and-2-in-1s/omnibook-x-ai-pc.html","catalog",0,"—","","конфигурации 32 ГБ"]]},
+{"id":"zenbook-a14","pl":"arm","cat":"ultrabook","bc":1,"nm":"ASUS Zenbook A14 (UX3407)","tag":"Суб-килограммовый (0,9–0,98 кг) · до 32 ч заявлено","cpu":"Snapdragon X Elite X1E-78-100 / X X1-26-100 / X2 Elite (2026)","gpu":"Qualcomm Adreno","pw":9500,"disp":"14\" OLED 1920×1200 (Lumina)","wt":"0,9–0,98 кг","dim":"≈31,1 × 21,5 × 1,35 см (на ~4 мм уже допуска)","os":"Windows 11 (ARM)","bt":["70 Вт·ч","до 32 ч заявлено / ~24 ч тесты","~20–35 Вт","65 Вт (100 Вт у X2)"],"bh":24,"ram":["fail","В Москве в наличии только 16 ГБ распаяна (для справки); 32 ГБ/1ТБ (UX3407RA-QD038W) — под заказ через PiterGSM"],"ai":"copilot","ain":"Легче килограмма, керамический Ceraluminum; ARM; 32 ГБ в Москве дефицит.","pf":99999,"tier":"mid","kbd":"DNS/asus-store — уточнить (официал обычно RU)","verd":"Самый лёгкий ноутбук каталога; брать только версию 32 ГБ.","vs":{"p":["Вес 0,9–0,98 кг — легче ВСЕХ моделей Intel/AMD (минимум там 1,03 кг)","До 24–32 ч без розетки — рекорд среди Windows","Корпус Ceraluminum: прочный, лёгкий, не царапается","Copilot+ и полная бесшумность"],"c":["ARM-эмуляция: тот же риск для корп. софта, что у OmniBook/Surface","Мощность ≈9,5 тыс. R23 — самая низкая среди «взрослых» моделей","Экран проще: FHD+ OLED без 120 Гц и высокой яркости","Версии 32 ГБ в Москве почти нет — в наличии в основном 16 ГБ"],"v":"ЛУЧШЕ Intel/AMD по весу и автономности — идеален «носить целый день»; ХУЖЕ по мощности, экрану и совместимости. Только версия 32 ГБ и после проверки софта."},"sh":[
+["DNS · QD374W (16 ГБ)","99 999 ₽","https://www.dns-shop.ru/product/opinion/7ab777e7d164d9cb/14-noutbuk-asus-zenbook-a14-ux3407qa-qd374w-seryj/","ok",1,"Москва","ru","16 ГБ — для справки, не проходит по памяти"],
+["ASUS-Store · QD267W (16 ГБ)","109 990 ₽","https://asus-store.ru/noutbuki/zenbook/noutbuk-asus-zenbook-a14-ux3407qa-qd267w-snapdragon-x-x1-26-10016g512g-ssd14-fhd1920x1200-oledqualcomm-adrenowin11-seryy-90nb1502-m00dn0.html","ok",0,"Москва","check","16 ГБ — для справки"],
+["PiterGSM · QD038W (32 ГБ/1ТБ)","уточнить","https://pitergsm.ru/catalog/laptops/asus/81535/","check",0,"СПб → Москва","check","целевая конфигурация по памяти"],
+["Цифрус","139 230 ₽","https://www.cifrus.ru/catalog2/23/asus/noutbuki_asus_zenbook_a14","check",0,"доставка","check","конфигурацию сверить"]]},
+{"id":"surface-7","pl":"arm","cat":"ultrabook","bc":1,"nm":"Microsoft Surface Laptop 7 (13,8\")","tag":"Copilot+ на Snapdragon · эталон корпуса · ~20–24 ч","cpu":"Qualcomm Snapdragon X Plus / X Elite","gpu":"Qualcomm Adreno","pw":10000,"disp":"13,8\" 2304×1536 · 120 Гц · сенсор","wt":"1,34 кг","dim":"30,1 × 22,0 × 1,75 см (заметно меньше цели)","os":"Windows 11 (ARM)","bt":["54 Вт·ч","~20–24 ч","~20–40 Вт","39–65 Вт"],"bh":20,"ram":["pick32","16 или 32 ГБ распаяна — брать строго версию 32 ГБ"],"ai":"copilot","ain":"Эталонные корпус/клавиатура/тачпад; ARM-ограничения; порты только USB-C.","pf":110000,"tier":"mid","kbd":"уточнить у продавца","verd":"Идеален как «браузер + документы + звонки»; для специфического софта — рискованно.","vs":{"p":["20–24 ч — вдвое больше типичных x86 (10–12 ч)","Эталонные корпус, клавиатура, тачпад; экран 120 Гц","Мгновенный сон/пробуждение, бесшумность","Лучшая реализация Windows on ARM (первый Copilot+ PC)"],"c":["ARM-ограничения совместимости — как у OmniBook/Zenbook A14","Память распаяна: нужна версия 32 ГБ (есть не во всех партиях)","Порты только USB-C — понадобятся переходники для офиса","Корпус 30,1 × 22,0 см — меньше целевого размера (экран 13,8\")"],"v":"ЛУЧШЕ Intel/AMD по автономности и качеству исполнения; ХУЖЕ по совместимости и портам. Хорош как второй/дорожный ноутбук для базовых задач."},"sh":[
+["BlackBerry Russia (ООО)","от 110 000 ₽","https://blackberryrussia.ru/collection/surface-laptop-7-copilot","ok",1,"Москва, Бутырская 77","check","22 товара, версии 16/32 ГБ"]]},
+{"id":"mbp14-m4","pl":"mac","cat":"ultrabook","nm":"Apple MacBook Pro 14 (M4, 2024)","tag":"Для сравнения: macOS · эталонная автономность","cpu":"Apple M4 (10 ядер) · M4 Pro / M4 Max","gpu":"Apple M4 GPU (10–40 ядер)","pw":11500,"disp":"14,2\" 3K mini-LED 3024×1964 · 120 Гц · 1000 нит","wt":"1,55–1,62 кг","dim":"31,26 × 22,12 × 1,55 см (на ~1,2 см уже цели)","os":"macOS (НЕ Windows)","bt":["72,6 Вт·ч","до 24 ч видео / ~14–18 ч реальных","чип ~20–30 Вт","70 Вт (96 Вт у Pro/Max)"],"bh":18,"ram":["pick32","распаяна: M4 — 16/24/32 ГБ (нужна 32); M4 Pro — 24/48 (24 не проходит); M4 Max — 36+ ✓"],"ai":"none","cpun":"M4 (10 ядер, ~11,5 тыс. R23) — оптимум цена/эффективность; M4 Pro (+40–60% мульти, дороже на ~100 тыс.) нужен только для монтажа/рендера; M4 Max — ниша тяжёлых профессиональных задач. Для базовых задач — M4/32 ГБ.","ain":"Apple Intelligence — свои ИИ-функции macOS; Windows-софт — только виртуализация.","pf":211390,"tier":"premium","kbd":"официалы — RU; импортёры — уточнять","verd":"Ближайший MacBook по габаритам; брать только осознанно — другая ОС.","sh":[
+["Stores-Apple (M4 Pro 24/512, 24 ГБ)","от 211 390 ₽","https://stores-apple.com/catalog/noutbuk-apple-macbook-pro-14-m4-pro-2024-16-core-gpu-24-gb-512-gb-serebristyy-mx2e3/","ok",0,"доставка в Москву","check","24 ГБ не проходит; 48 ГБ дороже"],
+["Applegod (M4 Max 36/1ТБ ✓)","269 790 ₽","https://applegod.ru/shop/apple/macbook/macbook-pro-14-16-m4/","ok",0,"Москва","check","36 ГБ — проходит"],
+["re:Store (официальный, юрлица ✔)","уточнить","https://re-store.ru/kompyutery-noutbuki/apple/macbook-pro/","catalog",1,"Москва","ru","конфигурации 32/48 ГБ — у менеджера"],
+["DNS","уточнить","https://www.dns-shop.ru/catalog/recipe/b70b01357dbede01/apple-macbook-pro/","catalog",1,"Москва","ru",""]]},
+{"id":"mbp14-m5","pl":"mac","cat":"ultrabook","nm":"Apple MacBook Pro 14 (M5 / M5 Pro / M5 Max, 2025–2026)","tag":"Свежие Mac: 32/36/48 ГБ · до 24 ч","cpu":"Apple M5 / M5 Pro / M5 Max (2025–2026)","gpu":"Apple M5 GPU","pw":22000,"disp":"14,2\" 3K mini-LED 3024×1964 · 120 Гц","wt":"1,55–1,62 кг","dim":"31,26 × 22,12 × 1,55 см (на ~1,2 см уже цели)","os":"macOS (НЕ Windows)","bt":["72,6 Вт·ч","до 24 ч видео / ~16–20 ч реальных","чип ~20–40 Вт","70–96 Вт"],"bh":20,"ram":["pick32","M5 — 16/24/32 (нужна 32); M5 Pro — 24/48 (24 нет); M5 Max — 36+ ✓"],"ai":"none","cpun":"M5 (10 ядер) — база; M5 Pro (+45–55% мульти) — монтаж/рендер; M5 Max — максимум. Для базовых задач достаточно M5/32 ГБ, переплата за Pro/Max не нужна.","ain":"Максимальная производительность на ватт в индустрии; но macOS и цена.","pf":339990,"tier":"premium","kbd":"DNS/re:Store — RU","verd":"Если macOS приемлема и бюджет не ограничен — лучший Mac по совокупности.","sh":[
+["DNS · M5 Max 18c (36/2ТБ ✓)","435 999 ₽","https://www.dns-shop.ru/product/5c063f55b76cddf3/142-noutbuk-apple-macbook-pro-m5-max-serebristyj/","ok",1,"Москва, 3 магазина","ru","предоплата; продажи партии прекращаются"],
+["re:Store · M5 Pro (24/1ТБ, 24 ГБ)","339 990 ₽","https://re-store.ru/kompyutery-noutbuki/apple/macbook-pro/","ok",1,"Москва","ru","24 ГБ не проходит — смотреть 48 ГБ"],
+["KNS · M5 Pro 24 ГБ (цена для организаций)","350 386 ₽","https://www.kns.ru/catalog/noutbuki/apple/macbook-pro/","ok",1,"Москва, склад (18 товаров)","check","48 ГБ — запросом"]]},
+{"id":"mbp16-m5","pl":"mac","cat":"laptop","bc":1,"nm":"Apple MacBook Pro 16 (M5 Pro, 2026)","tag":"⛔ ВНЕ допуска по габаритам — только для сравнения автономности","cpu":"Apple M5 Pro (18 ядер) / M5 Max","gpu":"Apple M5 Pro GPU (20+ ядер)","pw":22000,"disp":"16,2\" 3.5K mini-LED 3456×2234 · 120 Гц","wt":"2,14 кг","dim":"⛔ 35,57 × 24,81 × 1,68 см — вне допуска ±1 см","os":"macOS (НЕ Windows)","bt":["100 Вт·ч","до 24 ч видео / ~17–21 ч реальных","чип ~30–60 Вт","140 Вт"],"bh":21,"ram":["pick32","24 или 48 ГБ распаяна: 24 не проходит — брать 48 ГБ"],"ai":"none","cpun":"M5 Pro (18 ядер) — оптимум для Pro-задач; M5 Max (+30–40% мульти, +100+ тыс. ₽) — только если рендер/ML ежедневно. Для базовых задач оба избыточны.","ain":"Самая ёмкая батарея рейтинга (100 Вт·ч) и ~21 ч под нагрузкой. Но 16\", 2,14 кг и macOS — мимо исходных требований.","pf":339990,"tier":"premium","kbd":"официалы — RU","verd":"Эталон автономности и эффективности; размер/вес/ОС — мимо задачи. Только если требования пересмотрят.","vs":{"p":["~17–21 ч ПОД НАГРУЗКОЙ (не только видео) — x86 достигает таких цифр лишь в режиме видео","≈22 тыс. R23 при лучшей в индустрии производительности на ватт","Экран mini-LED 1600 нит, лучшие динамики и тачпад","Тишина: вентиляторы почти не слышны в офисных задачах"],"c":["macOS: корп. Windows-софт (1С, ЭДО, внутренние системы) не работает нативно","35,57 × 24,81 см и 2,14 кг — далеко вне допуска ±1 см и целевого веса","Базовые 24 ГБ не проходят по памяти — нужна 48 ГБ (+~60–80 тыс. ₽)","Цена от ~340 тыс. ₽ — в разы дороже x86-аналогов"],"v":"ЛУЧШЕ всех по автономности под нагрузкой, экрану и эффективности; ХУЖЕ — по соответствию исходным требованиям (Windows, размер, вес, цена). Рассматривать только при пересмотре требований."},"sh":[
+["re:Store · M5 Pro 18c (24/1ТБ)","339 990 ₽","https://re-store.ru/kompyutery-noutbuki/apple/macbook-pro/","ok",1,"Москва","ru","официальная гарантия, юрлица ✔"],
+["KNS · M5 Pro 24 ГБ (для организаций)","350 386 ₽","https://www.kns.ru/catalog/noutbuki/apple/macbook-pro/","ok",1,"Москва, склад","check","48 ГБ — запросом"],
+["Savensale · M5 Pro 48 ГБ ✓ (кастом)","уточнить","https://savensale.ru/macbook_pro/","check",0,"Москва","check","48 ГБ — проходит по памяти"]]}
+]
+</script>
+
+<script>
+var M;
+try {
+  M = JSON.parse(document.getElementById('lbdata').textContent);
+} catch (err) {
+  document.getElementById('errban').style.display = 'block';
+  document.getElementById('errban').textContent = 'Не удалось разобрать блок данных: ' + err.message + '. Пришли скрин — починю.';
+}
+var PL={intel:{l:'Intel',c:'#38bdf8'},amd:{l:'AMD',c:'#fb7185'},arm:{l:'ARM · Snapdragon',c:'#a78bfa'},mac:{l:'Apple Silicon',c:'#cbd5e1'}};
+var CAT={ultrabook:'ультрабук',laptop:'ноутбук',gaming:'игровой · без dGPU'};
+var TIER={mid:{l:'70–150 тыс',c:'bg-amber-400/15 text-amber-300 border-amber-400/30'},premium:{l:'150 тыс+',c:'bg-fuchsia-400/15 text-fuchsia-300 border-fuchsia-400/30'}};
+var RAM={ok32:{i:'✅',c:'border-emerald-400/30 bg-emerald-400/[.07]'},up:{i:'🔧',c:'border-sky-400/30 bg-sky-400/[.07]'},pick32:{i:'⚠️',c:'border-amber-400/30 bg-amber-400/[.07]'},fail:{i:'⛔',c:'border-rose-400/30 bg-rose-400/[.07]'}};
+var KBD={ru:{l:'⌨ RU',c:'bg-emerald-400/15 text-emerald-300 border-emerald-400/30'},eng:{l:'⌨ ENG — без русских',c:'bg-rose-400/15 text-rose-300 border-rose-400/30'},check:{l:'⌨ уточнить',c:'bg-amber-400/10 text-amber-300/90 border-amber-400/25'}};
+var STK={ok:{l:'✔ в наличии',c:'text-emerald-300'},check:{l:'? уточнить/поступление',c:'text-amber-300'},catalog:{l:'каталог',c:'text-slate-400'}};
+function fmtRub(n){return n.toLocaleString('ru-RU')+' ₽';}
+function pval(s){var m=String(s).replace(/\s/g,'').match(/(\d{4,})/);return m?parseInt(m[1],10):Infinity;}
+function ppct(v){return Math.max(4,Math.round(v/24000*100));}
+function aiB(m){
+  if(m.ai==='copilot'){return '<span onclick="openGlossary()" class="px-2 py-0.5 rounded-md bg-violet-400/15 text-violet-300 text-[11px] font-bold border border-violet-400/30 cursor-pointer" title="Что это? Открой словарь">Copilot+ PC ?</span>';}
+  if(m.ai==='npu'){return '<span onclick="openGlossary()" class="px-2 py-0.5 rounded-md bg-slate-400/10 text-slate-300 text-[11px] font-bold border border-slate-400/25 cursor-pointer" title="Что такое NPU? Открой словарь">NPU (ИИ-блок) ?</span>';}
+  return '';
+}
+var toastT=null;
+function showToastMsg(t){var el=document.getElementById('toast');el.textContent=t;el.classList.add('show');clearTimeout(toastT);toastT=setTimeout(function(){el.classList.remove('show');},1700);}
+function openGlossary(){var m=document.getElementById('glossaryModal');m.classList.remove('hidden');m.classList.add('flex');}
+function closeGlossary(){var m=document.getElementById('glossaryModal');m.classList.add('hidden');m.classList.remove('flex');}
+
+function cardHTML(m){
+  var p=PL[m.pl],t=TIER[m.tier],r=RAM[m.ram[0]];
+  var price=m.pf?('от '+fmtRub(m.pf)):(m.plb||'уточнить');
+  var shops=m.sh.map(function(s){
+    var hn=pval(s[1])!==Infinity, sk=STK[s[3]], kb=KBD[s[6]]||KBD['check'];
+    var b2=s[4]?'<span class="px-1.5 py-0.5 rounded text-[9px] font-bold bg-emerald-400/15 text-emerald-300 border border-emerald-400/30 whitespace-nowrap">юрлицо ✔</span>':'<span class="px-1.5 py-0.5 rounded text-[9px] font-bold bg-amber-400/10 text-amber-300/80 border border-amber-400/25 whitespace-nowrap">счёт уточнить</span>';
+    return '<div class="shop-row px-3.5 py-2.5 border-b border-white/5 last:border-0 bg-white/[.02]">'+
+      '<div class="flex items-center justify-between gap-2 flex-wrap"><div class="flex items-center gap-2 min-w-0">'+
+      '<span class="font-semibold truncate text-sm">'+s[0]+'</span><span class="text-[10px] '+sk.c+' whitespace-nowrap">'+sk.l+'</span></div>'+
+      '<div class="flex items-center gap-1.5 shrink-0"><span class="font-display text-xs '+(hn?'text-amber-300':'text-slate-500')+'">'+s[1]+'</span>'+
+      '<a href="'+s[2]+'" target="_blank" rel="noopener" class="btn-buy px-3 py-1.5 rounded-lg text-[11px]">Открыть ↗</a>'+
+      '<button data-copy-url="'+s[2]+'" class="icon-btn px-2 py-1 rounded-lg text-[11px] text-slate-300" title="Скопировать ссылку">⧉</button></div></div>'+
+      '<div class="flex items-center gap-1.5 mt-1.5 flex-wrap"><span class="px-1.5 py-0.5 rounded text-[9px] bg-sky-400/10 text-sky-300 border border-sky-400/25 whitespace-nowrap">📍 '+s[5]+'</span>'+b2+
+      '<span class="px-1.5 py-0.5 rounded text-[9px] font-bold border whitespace-nowrap '+kb.c+'">'+kb.l+'</span>'+
+      (s[7]?'<span class="text-[10px] text-slate-500">'+s[7]+'</span>':'')+'</div></div>';
+  }).join('');
+  var cpuN=m.cpun?('<div class="mt-3 rounded-xl border border-violet-400/25 bg-violet-400/[.05] px-3.5 py-2.5 text-[13px] relative"><b class="text-violet-300">🧠 Какой CPU лучше:</b> <span class="text-slate-300">'+m.cpun+'</span></div>'):'';
+  var vs=m.vs?('<div class="mt-4 rounded-2xl border border-violet-400/25 bg-violet-400/[.05] p-4 relative"><p class="font-display text-violet-300 text-sm mb-2">⚖️ Сравнение с основным подбором (Intel / AMD, x86)</p><div class="grid sm:grid-cols-2 gap-3 text-xs"><div><p class="text-emerald-300 font-bold mb-1">＋ В чём лучше</p><ul class="space-y-1 text-slate-300">'+m.vs.p.map(function(x){return '<li>• '+x+'</li>';}).join('')+'</ul></div><div><p class="text-rose-300 font-bold mb-1">－ В чём хуже</p><ul class="space-y-1 text-slate-300">'+m.vs.c.map(function(x){return '<li>• '+x+'</li>';}).join('')+'</ul></div></div><p class="text-xs text-slate-300 mt-3 leading-relaxed"><b class="text-violet-300">Вердикт:</b> '+m.vs.v+'</p></div>'):'';
+  return '<article class="glass rounded-3xl p-5 md:p-7 reveal relative overflow-hidden" data-cat="'+m.cat+'" data-tier="'+m.tier+'" data-ram="'+m.ram[0]+'" data-power="'+m.pw+'">'+
+  '<div class="absolute -top-24 -right-24 w-64 h-64 rounded-full blur-3xl opacity-15" style="background:'+p.c+'"></div>'+
+  '<div class="flex items-start justify-between gap-3 flex-wrap relative"><div class="min-w-0"><div class="flex flex-wrap items-center gap-1.5 mb-2">'+
+  '<span class="px-2 py-0.5 rounded-md text-[11px] font-bold '+(m.pl==='mac'?'bg-slate-200 text-black':'text-black')+'" style="'+(m.pl==='mac'?'':'background:'+p.c)+'">'+p.l+'</span>'+
+  '<span class="px-2 py-0.5 rounded-md bg-white/[.07] border border-white/15 text-slate-200 text-[11px] font-bold">'+CAT[m.cat]+'</span>'+
+  '<span class="px-2 py-0.5 rounded-md border text-[11px] font-bold '+t.c+'">'+t.l+'</span>'+
+  (m.bc?'<span class="px-2 py-0.5 rounded-md bg-emerald-400/15 text-emerald-300 text-[11px] font-bold border border-emerald-400/30">🔋 рекордсмен автономности</span>':'')+
+  (m.ref?'<span class="px-2 py-0.5 rounded-md bg-sky-400/15 text-sky-300 text-[11px] font-bold border border-sky-400/30">📋 справочно (импорт)</span>':'')+aiB(m)+'</div>'+
+  '<h3 class="font-display text-lg md:text-xl leading-snug">'+m.nm+'</h3><p class="text-slate-400 text-xs mt-1">'+m.tag+'</p></div>'+
+  '<div class="text-right shrink-0"><p class="font-display text-amber-300 text-base md:text-lg">'+price+'</p><p class="text-[10px] text-slate-500">проверено 11.09.2026</p></div></div>'+
+  '<div class="mt-4 relative"><div class="flex items-center justify-between text-xs mb-1.5"><span class="text-slate-400">Мощность CPU · ≈ '+m.pw.toLocaleString('ru-RU')+' баллов <span class="help-dot text-amber-300" onclick="openGlossary()">R23 ?</span></span><span class="text-slate-500">'+(m.pw>=20000?'рабочая станция':m.pw>=14000?'запас на годы':m.pw>=9000?'достаточно для базы':'базовый уровень')+'</span></div>'+
+  '<div class="pbar"><div class="pfill" style="width:'+ppct(m.pw)+'%"></div></div></div>'+
+  '<ul class="mt-4 grid sm:grid-cols-2 gap-x-6 gap-y-1.5 text-[13px] relative">'+
+  '<li class="flex gap-2"><span class="text-slate-500 shrink-0">CPU</span><span class="text-slate-200">'+m.cpu+'</span></li>'+
+  '<li class="flex gap-2"><span class="text-slate-500 shrink-0">GPU</span><span class="text-slate-200">'+m.gpu+'</span></li>'+
+  '<li class="flex gap-2"><span class="text-slate-500 shrink-0">Экран</span><span class="text-slate-200">'+m.disp+'</span></li>'+
+  '<li class="flex gap-2"><span class="text-slate-500 shrink-0">ОС</span><span class="text-slate-200">'+m.os+'</span></li>'+
+  '<li class="flex gap-2"><span class="text-slate-500 shrink-0">Вес</span><span class="text-slate-200">'+m.wt+'</span></li>'+
+  '<li class="flex gap-2"><span class="text-slate-500 shrink-0">Габариты корпуса</span><span class="text-amber-200 font-semibold">'+m.dim+'</span></li></ul>'+
+  '<div class="mt-3 grid grid-cols-3 gap-2 text-center relative">'+
+  '<div class="batt-cell rounded-xl px-2 py-2.5"><p class="text-[10px] text-slate-400 uppercase tracking-wider">Батарея</p><p class="text-xs md:text-sm font-bold text-emerald-300 mt-0.5">'+m.bt[0]+'</p></div>'+
+  '<div class="batt-cell rounded-xl px-2 py-2.5"><p class="text-[10px] text-slate-400 uppercase tracking-wider">Без зарядки</p><p class="text-xs md:text-sm font-bold text-emerald-300 mt-0.5">'+m.bt[1]+'</p></div>'+
+  '<div class="batt-cell rounded-xl px-2 py-2.5"><p class="text-[10px] text-slate-400 uppercase tracking-wider">Энергоемкость</p><p class="text-xs md:text-sm font-bold text-emerald-300 mt-0.5">'+m.bt[2]+'</p><p class="text-[9px] text-slate-500">БП '+m.bt[3]+'</p></div></div>'+
+  '<div class="mt-3 rounded-xl border px-3.5 py-2.5 text-[13px] '+r.c+'"><b>'+r.i+' Память:</b> '+m.ram[1]+'</div>'+
+  cpuN+
+  (m.kbd?'<p class="mt-2 text-xs text-slate-400"><b class="text-sky-300">Клавиатура:</b> '+m.kbd+'</p>':'')+
+  (m.ain?'<p class="mt-1 text-xs text-slate-400 leading-relaxed">'+m.ain+'</p>':'')+
+  '<p class="mt-2 text-xs text-slate-300 italic">«'+m.verd+'»</p>'+
+  '<div class="mt-4 relative"><p class="text-[11px] uppercase tracking-widest text-slate-500 mb-2">Где купить · наличие на 11.09.2026</p><div class="rounded-2xl overflow-hidden border border-white/10">'+shops+'</div></div>'+vs+'</article>';
+}
+
+var FS={intel:{cat:'all',tier:'all',ram:'all'},amd:{cat:'all',tier:'all',ram:'all'}};
+var FG=[
+ {k:'cat',t:'Тип',o:[['all','все'],['ultrabook','ультрабуки'],['laptop','ноутбуки'],['gaming','игровой без dGPU']]},
+ {k:'tier',t:'Цена',o:[['all','любая'],['mid','70–150 тыс'],['premium','150 тыс+']]},
+ {k:'ram',t:'Память',o:[['all','любая'],['ok32','32 ГБ с завода'],['up','можно добавить'],['pick32','брать версию 32 ГБ'],['fail','⛔ 16 ГБ (справка)']]}
+];
+function renderFilters(pl){
+  document.getElementById(pl+'Filters').innerHTML=FG.map(function(g){
+    return '<div class="flex items-center gap-1.5 flex-wrap mr-3 mb-2"><span class="text-[11px] text-slate-500 uppercase tracking-wider">'+g.t+':</span>'+g.o.map(function(o){
+      return '<button data-platform="'+pl+'" data-fkey="'+g.k+'" data-fval="'+o[0]+'" class="chip px-3 py-1.5 rounded-lg glass text-xs '+(FS[pl][g.k]===o[0]?'on':'')+'">'+o[1]+'</button>';
+    }).join('')+'</div>';
+  }).join('');
+}
+function renderPlatform(pl){
+  var s=FS[pl];
+  var f=M.filter(function(m){return m.pl===pl&&(s.cat==='all'||m.cat===s.cat)&&(s.tier==='all'||m.tier===s.tier)&&(s.ram==='all'||m.ram[0]===s.ram);}).sort(function(a,b){return b.pw-a.pw;});
+  document.getElementById(pl+'Cards').innerHTML=f.length?f.map(cardHTML).join(''):'<p class="text-slate-400 text-sm py-10">Под эти фильтры ничего не подошло.</p>';
+  observeReveals();
+}
+function renderAlt(){
+  document.getElementById('altCards').innerHTML=M.filter(function(m){return m.pl==='arm'||m.pl==='mac';}).sort(function(a,b){return b.pw-a.pw;}).map(cardHTML).join('');
+  observeReveals();
+}
+function renderBatt(){
+  var ch=M.filter(function(m){return m.bc;}).sort(function(a,b){return b.bh-a.bh;});
+  document.getElementById('battTableWrap').innerHTML=ch.map(function(m){
+    var ok=m.id==='mbp16-m5'?'<span class="text-rose-300 font-bold">⛔ нет (35,6 × 24,8)</span>':(m.id==='surface-7'?'<span class="text-amber-300">⚠️ меньше цели (30,1 × 22,0)</span>':(m.id==='zenbook-a14'?'<span class="text-amber-300">⚠️ на ~4 мм уже допуска</span>':'<span class="text-emerald-300">✔ да</span>'));
+    return '<tr class="hover:bg-white/[.03] transition"><td class="py-3 pr-3 font-semibold text-sm">'+m.nm+'</td><td class="py-3 pr-3 text-emerald-300 font-bold whitespace-nowrap">'+m.bt[1].split('(')[0]+'</td><td class="py-3 pr-3 text-slate-300 whitespace-nowrap">'+m.bt[0]+'</td><td class="py-3 pr-3 text-slate-300 whitespace-nowrap">'+m.dim.split('(')[0]+'</td><td class="py-3 text-xs">'+ok+'</td></tr>';
+  }).join('');
+  document.getElementById('battCards').innerHTML=ch.map(cardHTML).join('');
+  observeReveals();
+}
+var SK='power';
+function renderAll(){
+  var L=M.slice();
+  if(SK==='power'){L.sort(function(a,b){return b.pw-a.pw;});}
+  if(SK==='priceAsc'){L.sort(function(a,b){return (a.pf||Infinity)-(b.pf||Infinity);});}
+  if(SK==='priceDesc'){L.sort(function(a,b){return (b.pf||0)-(a.pf||0);});}
+  if(SK==='weight'){L.sort(function(a,b){return parseFloat(a.wt.replace(',','.'))-parseFloat(b.wt.replace(',','.'));});}
+  if(SK==='battery'){L.sort(function(a,b){return b.bh-a.bh;});}
+  document.getElementById('allTableWrap').innerHTML='<table class="grid-t w-full text-sm"><thead><tr class="text-left text-[11px] uppercase tracking-widest text-slate-500"><th class="py-2 pr-3">#</th><th class="py-2 pr-3">Модель (габариты корпуса)</th><th class="py-2 pr-3">Процессор</th><th class="py-2 pr-3">Мощность</th><th class="py-2 pr-3">Батарея / время</th><th class="py-2 pr-3">Энергоемкость</th><th class="py-2 pr-3">32 ГБ?</th><th class="py-2 pr-3">Цена</th></tr></thead><tbody>'+
+  L.map(function(m,i){
+    return '<tr class="align-middle hover:bg-white/[.03] transition"><td class="py-3 pr-3 text-slate-500 font-display text-xs">'+(i+1)+'</td><td class="py-3 pr-3"><p class="font-semibold text-sm">'+(m.bc?'🔋 ':'')+(m.ref?'📋 ':'')+m.nm+'</p><p class="text-[11px] text-slate-500">'+CAT[m.cat]+' · '+m.wt+' · '+m.dim.split('(')[0]+'</p></td><td class="py-3 pr-3 text-xs" style="color:'+PL[m.pl].c+'">'+m.cpu.split('·')[0]+'</td><td class="py-3 pr-3 w-32"><p class="text-xs text-slate-300 mb-1">≈ '+m.pw.toLocaleString('ru-RU')+'</p><div class="pbar"><div class="pfill" style="width:'+ppct(m.pw)+'%"></div></div></td><td class="py-3 pr-3 text-xs text-emerald-300 whitespace-nowrap">'+m.bt[0]+' <span class="text-slate-500">· '+m.bt[1].split('(')[0].split('/')[0]+'</span></td><td class="py-3 pr-3 text-xs whitespace-nowrap">'+m.bt[2]+' <span class="text-slate-500">/ БП '+m.bt[3]+'</span></td><td class="py-3 pr-3 text-xs">'+RAM[m.ram[0]].i+'</td><td class="py-3 pr-3 font-display text-amber-300 text-xs whitespace-nowrap">'+(m.pf?'от '+fmtRub(m.pf):(m.plb||'уточнить'))+'</td></tr>';
+  }).join('')+
+  '</tbody></table><p class="text-[11px] text-slate-500 mt-3">🔋 — рекордсмены автономности · 📋 — справочно (импорт, решение позже). ✅ 32 ГБ с завода · 🔧 добавляется плашкой 16+16 · ⚠️ распаяна — брать версию 32 ГБ · ⛔ не расширить до 32 (для справки). Ссылки на покупку — в карточках на страницах платформ. Наличие проверено 11.09.2026.</p>';
+}
+var PICKS=[
+ ['🎯','Точные габариты 32,5 × 22,8','yoga-pro7-amd','Единственный корпус ровно под размер. 32 ГБ с завода, 3K OLED, Copilot+. Регард: 173 900 ₽, RU-раскладка, оплата по счёту.'],
+ ['💰','Цена / качество','thinkbook-g6abp','89 999 ₽ в DNS: 32 ГБ уже в слотах SO-DIMM, Ryzen 5, WUXGA. Самый дешёвый вход в требования с возможностью апгрейда.'],
+ ['🪶','Самый лёгкий (~1 кг)','art14-721','1,03 кг при 14,6" 3.1K OLED и 32 ГБ. DNS 169 990 ₽ / Ситилинк 169 990 ₽ — в наличии, RU.'],
+ ['🔋','Автономность (Windows, в наличии)','swift-974a','Lunar Lake 288V: 17–37 Вт и ~14–18 ч, Copilot+, 32 ГБ. DNS 131 999 ₽ (дешевле KNS на ~20 тыс.).'],
+ ['🔋','Автономность (рекорд, 16 ГБ-справка)','zenbook-a14','0,9–0,98 кг и до 24–32 ч. В Москве в наличии 16 ГБ ⛔ (для справки); 32 ГБ — под заказ (PiterGSM).'],
+ ['🔧','Апгрейд памяти 16+16','probook-125u','2 слота SO-DIMM: KNS 91 754 ₽ / Ситилинк 102 750 ₽ (НДС, ЕАИСТ) + плашка 16 ГБ ≈ 5 тыс. = 32 ГБ двухканал. Альтернативы: T14 Gen 5 (до 96 ГБ), VivoBook S14 (32 ГБ в слотах), ExpertBook P3 G2.'],
+ ['🎮','Игровой без видеокарты (📋 справочно)','tuf-a14','Strix Halo: 12 ядер Zen 5 + iGPU уровня RTX 4060 при 1,48 кг. Ozon: 187 877 ₽ (32/2 ТБ) / 233 152 ₽ (64/1 ТБ); счёт — через Ozon для бизнеса. Решение по статусу — позже.'],
+ ['🏢','Бизнес-AMD дёшево','expertbook-p3','Ryzen 7 260 + 32 ГБ DDR5 в слотах + 1 ТБ: KNS 104 643 ₽ (без ОС) / 120 331 ₽ (Win 11 Pro), НДС и ЕАИСТ.'],
+ ['🚀','Максимум мощности (Intel)','mbpro14','Ultra 9 285H + 32 ГБ + 3.1K OLED + 92 Вт·ч. Технопарк 139 990 ₽ (225H) / DNS 179 999 ₽ (285H); KNS 172 059 ₽ для организаций.'],
+ ['🍏','Сравнение с Mac (новые 2024–2026)','mbp14-m4','MacBook Pro 14 M4/M5 — ближайший по габаритам (31,26 × 22,12) и до 24 ч от батареи. macOS вместо Windows — осознанный выбор.']
+];
+function renderPicks(){
+  document.getElementById('picksWrap').innerHTML=PICKS.map(function(pk){
+    var m=M.find(function(x){return x.id===pk[2];});
+    return '<div class="glass rounded-3xl p-6 reveal relative overflow-hidden"><div class="absolute -bottom-16 -right-16 w-48 h-48 rounded-full blur-3xl opacity-15" style="background:'+PL[m.pl].c+'"></div><p class="text-2xl">'+pk[0]+'</p><p class="text-[11px] uppercase tracking-widest text-slate-500 mt-2">'+pk[1]+'</p><h3 class="font-display text-base mt-1" style="color:'+PL[m.pl].c+'">'+m.nm+'</h3><p class="text-slate-300 text-sm mt-2 leading-relaxed">'+pk[3]+'</p></div>';
+  }).join('');
+}
+function renderTop(){
+  var L=M.slice().sort(function(a,b){return b.pw-a.pw;}).slice(0,8);
+  document.getElementById('topTableWrap').innerHTML='<table class="grid-t w-full text-sm"><thead><tr class="text-left text-[11px] uppercase tracking-widest text-slate-500"><th class="py-2 pr-3">#</th><th class="py-2 pr-3">Модель</th><th class="py-2 pr-3">Почему лучший</th><th class="py-2 pr-3">Мощность</th><th class="py-2 pr-3">Батарея</th><th class="py-2">Цена</th></tr></thead><tbody>'+
+  L.map(function(m,i){
+    return '<tr class="hover:bg-white/[.03] transition"><td class="py-3 pr-3 text-slate-500 font-display text-xs">'+(i+1)+'</td><td class="py-3 pr-3"><p class="font-semibold text-sm">'+m.nm+'</p><p class="text-[11px]" style="color:'+PL[m.pl].c+'">'+m.cpu.split('·')[0]+'</p></td><td class="py-3 pr-3 text-xs text-slate-300 max-w-[220px]">'+m.tag+'</td><td class="py-3 pr-3 w-32"><div class="pbar"><div class="pfill" style="width:'+ppct(m.pw)+'%"></div></div><p class="text-[10px] text-slate-500 mt-1">≈ '+m.pw.toLocaleString('ru-RU')+'</p></td><td class="py-3 pr-3 text-xs text-emerald-300 whitespace-nowrap">'+m.bt[0]+' · '+m.bt[1].split('(')[0].split('/')[0]+'</td><td class="py-3 font-display text-amber-300 text-xs whitespace-nowrap">'+(m.pf?'от '+fmtRub(m.pf):(m.plb||'уточнить'))+'</td></tr>';
+  }).join('')+'</tbody></table>';
+}
+function switchPage(u,p){
+  var t=(typeof u==='string')?u:p;
+  ['home','intel','amd','alt','batt','all'].forEach(function(x){document.getElementById('page-'+x).classList.toggle('hidden',x!==t);});
+  document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-tab')===t);});
+  window.scrollTo({top:0,behavior:'smooth'});
+  observeReveals();
+}
+document.addEventListener('click',function(ev){
+  var c=ev.target.closest('[data-copy-url]');
+  if(c){navigator.clipboard.writeText(c.getAttribute('data-copy-url')).then(function(){showToastMsg('Ссылка скопирована');});return;}
+  var t=ev.target.closest('.tab-btn');
+  if(t){switchPage(null,t.getAttribute('data-tab'));return;}
+  var f=ev.target.closest('[data-fkey]');
+  if(f){var pl=f.getAttribute('data-platform');FS[pl][f.getAttribute('data-fkey')]=f.getAttribute('data-fval');renderFilters(pl);renderPlatform(pl);return;}
+  var s=ev.target.closest('[data-sortkey]');
+  if(s){SK=s.getAttribute('data-sortkey');document.querySelectorAll('[data-sortkey]').forEach(function(b){b.classList.toggle('active',b===s);});renderAll();}
+});
+document.getElementById('glossaryModal').addEventListener('click',function(ev){if(ev.target.id==='glossaryModal'){closeGlossary();}});
+var rObs=null;
+function observeReveals(){
+  if(!rObs){
+    rObs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');rObs.unobserve(e.target);}});},{threshold:.08});
+  }
+  document.querySelectorAll('.reveal:not(.visible)').forEach(function(el){rObs.observe(el);});
+}
+if (M) {
+  renderPicks();renderTop();renderFilters('intel');renderFilters('amd');renderPlatform('intel');renderPlatform('amd');renderAlt();renderBatt();renderAll();observeReveals();
+}
+</script>
+</body>
+</html>
